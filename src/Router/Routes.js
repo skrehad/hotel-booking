@@ -1,20 +1,14 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "../Components/About/About";
-import Blogs from "../Components/Blogs/Blogs";
 import Contact from "../Components/Contact/Contact";
 import Home from "../Components/Home/Home";
-// import Login from "../Components/Login/Login";
 import NotFound from "../Components/NotFound/NotFound";
-// import Register from "../Components/Register/Register";
-// import MyOrder from "../Components/MyOrder/MyOrder";
 import Products from "../Components/Products/Products";
-// import DetailsProduct from "../Components/DetailsProduct/DetailsProduct";
-// import PrivateRouter from "./PrivateRouter";
-// import OverAllReview from "../Components/OverAllReview/OverAllReview";
 import Main from "../Layouts/Main";
 import SignUp from "../Components/SignUp/SignUp";
 import Login from "../Components/Login/Login";
+import Blog from "../Components/Blog/Blog";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -66,7 +60,7 @@ const Routes = () => {
 
         {
           path: "/blog",
-          element: <Blogs></Blogs>,
+          element: <Blog></Blog>,
         },
         {
           path: "/contact",

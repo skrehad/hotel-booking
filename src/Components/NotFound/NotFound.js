@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useTitle from "../../Shared/TitleChange/TitleChange";
 
 const NotFound = () => {
-  useTitle("Not Found");
-
   return (
     <div className="text-center">
       <p className="text-[200px] font-mono font-bold">404</p>
