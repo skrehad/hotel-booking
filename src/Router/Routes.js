@@ -4,11 +4,11 @@ import About from "../Components/About/About";
 import Contact from "../Components/Contact/Contact";
 import Home from "../Components/Home/Home";
 import NotFound from "../Components/NotFound/NotFound";
-import Products from "../Components/Products/Products";
 import Main from "../Layouts/Main";
 import SignUp from "../Components/SignUp/SignUp";
 import Login from "../Components/Login/Login";
 import Blog from "../Components/Blog/Blog";
+import Hotels from "../Components/Hotels/Hotels";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -25,39 +25,9 @@ const Routes = () => {
           element: <About></About>,
         },
         {
-          path: "/products",
-          element: <Products></Products>,
+          path: "/hotels",
+          element: <Hotels></Hotels>,
         },
-        // {
-        //   path: "/products/:id",
-        //   loader: async ({ params }) => {
-        //     return fetch(
-        //       `https://easy-shop-backend-server.vercel.app/products/${params.id}`
-        //     );
-        //   },
-        //   element: (
-        //     <PrivateRouter>
-        //       <DetailsProduct></DetailsProduct>
-        //     </PrivateRouter>
-        //   ),
-        // },
-        // {
-        //   path: "/myOrders",
-        //   element: (
-        //     <PrivateRouter>
-        //       <MyOrder></MyOrder>
-        //     </PrivateRouter>
-        //   ),
-        // },
-        // {
-        //   path: "/addReview",
-        //   element: (
-        //     <PrivateRouter>
-        //       <OverAllReview></OverAllReview>
-        //     </PrivateRouter>
-        //   ),
-        // },
-
         {
           path: "/blog",
           element: <Blog></Blog>,

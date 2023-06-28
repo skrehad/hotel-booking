@@ -27,11 +27,11 @@ const Header = () => {
       </li>
       <li>
         <NavLink
-          to="/products"
+          to="/hotels"
           className="block text-lg font-mono font-bold mx-4 sm:py-1    ({ isActive, isPending }) =>
     isPending ? 'pending' : isActive ? 'active' : '' "
         >
-          Products
+          Hotels
         </NavLink>
       </li>
       <li>
@@ -43,7 +43,7 @@ const Header = () => {
           About
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink
           to="/myOrders"
           className="block text-lg  font-bold  font-mono mx-4 sm:py-1    ({ isActive, isPending }) =>
@@ -51,7 +51,7 @@ const Header = () => {
         >
           MyOrders
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink
           to="/blog"
@@ -123,11 +123,11 @@ const Header = () => {
         <ul className="flex mx-4 ">
           <li className="">
             <NavLink
-              to="/SignUp"
+              to="/signUp"
               className="block text-lg font-mono sm:py-1 lg:mx-4 mx-1 font-bold   ({ isActive, isPending }) =>
                 isPending ? 'pending' : isActive ? 'active' : '' "
             >
-              Register
+              SignUp
             </NavLink>
           </li>
           <li>
