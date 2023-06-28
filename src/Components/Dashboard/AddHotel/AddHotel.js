@@ -1,7 +1,7 @@
 import React from "react";
 
 const AddHotel = () => {
-  return <div>AddHotel</div>;
+  return <div>Add A Hotel</div>;
 };
 
 export default AddHotel;
