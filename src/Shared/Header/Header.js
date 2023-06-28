@@ -1,8 +1,6 @@
 import React from "react";
 import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
-// import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
-// import { toast } from "react-hot-toast";
 
 const Header = () => {
   //   const { user, logOut } = useContext(AuthContext);
@@ -19,7 +17,7 @@ const Header = () => {
       <li>
         <NavLink
           to="/"
-          className="block text-lg font-bold font-mono sm:py-1 mx-4    ({ isActive, isPending }) =>
+          className="block text-black text-lg font-bold font-mono sm:py-1 mx-4    ({ isActive, isPending }) =>
     isPending ? 'pending' : isActive ? 'active' : '' "
         >
           Home
@@ -28,7 +26,7 @@ const Header = () => {
       <li>
         <NavLink
           to="/hotels"
-          className="block text-lg font-mono font-bold mx-4 sm:py-1    ({ isActive, isPending }) =>
+          className="block text-black text-lg font-mono font-bold mx-4 sm:py-1    ({ isActive, isPending }) =>
     isPending ? 'pending' : isActive ? 'active' : '' "
         >
           Hotels
@@ -37,25 +35,25 @@ const Header = () => {
       <li>
         <NavLink
           to="/about"
-          className="block text-lg font-mono font-bold mx-4 sm:py-1    ({ isActive, isPending }) =>
+          className="block text-black text-lg font-mono font-bold mx-4 sm:py-1    ({ isActive, isPending }) =>
     isPending ? 'pending' : isActive ? 'active' : '' "
         >
           About
         </NavLink>
       </li>
-      {/* <li>
+      <li>
         <NavLink
-          to="/myOrders"
-          className="block text-lg  font-bold  font-mono mx-4 sm:py-1    ({ isActive, isPending }) =>
+          to="/dashboard"
+          className="block text-black text-lg font-mono font-bold mx-4 sm:py-1    ({ isActive, isPending }) =>
     isPending ? 'pending' : isActive ? 'active' : '' "
         >
-          MyOrders
+          Dashboard
         </NavLink>
-      </li> */}
+      </li>
       <li>
         <NavLink
           to="/blog"
-          className="block text-lg font-bold font-mono mx-4 sm:py-1    ({ isActive, isPending }) =>
+          className="block text-black text-lg font-bold font-mono mx-4 sm:py-1    ({ isActive, isPending }) =>
     isPending ? 'pending' : isActive ? 'active' : '' "
         >
           Blog
@@ -65,7 +63,7 @@ const Header = () => {
       <li>
         <NavLink
           to="/contact"
-          className="block text-lg font-bold font-mono mx-4 sm:py-1     ({ isActive, isPending }) =>
+          className="block text-black text-lg font-bold font-mono mx-4 sm:py-1     ({ isActive, isPending }) =>
     isPending ? 'pending' : isActive ? 'active' : '' "
         >
           Contact
@@ -74,7 +72,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="navbar bg-white  lg:px-8 sticky top-0 z-10">
+    <div className="navbar px-3  bg-white  lg:px-8 sticky top-0 z-10">
       <div className="navbar-start">
         <div className="dropdown ">
           <label tabIndex={0} className="mt-4 cursor-pointer lg:hidden">
@@ -100,13 +98,13 @@ const Header = () => {
             {menuItems}
           </ul>
         </div>
-        <Link to="/" className="ml-2 flex   normal-case text-xl">
+        <Link to="/" className="ml-2 flex normal-case text-xl">
           <img
-            className="w-[50px] headerImage h-[50px]"
-            src="https://i.ibb.co/KrFxBpb/images.png"
+            className="w-[50px] rounded-lg headerImage h-[50px]"
+            src="https://i.ibb.co/NNT3GBS/favicon.jpg"
             alt=""
           />
-          <div className="ml-2 italic font-bold mt-2.5 headerIcon">
+          <div className="ml-2 text-black italic font-bold mt-2.5 headerIcon">
             Hotel Booking
           </div>
         </Link>
@@ -124,7 +122,7 @@ const Header = () => {
           <li className="">
             <NavLink
               to="/signUp"
-              className="block text-lg font-mono sm:py-1 lg:mx-4 mx-1 font-bold   ({ isActive, isPending }) =>
+              className="block text-black text-lg font-mono sm:py-1 lg:mx-4 mx-1 font-bold   ({ isActive, isPending }) =>
                 isPending ? 'pending' : isActive ? 'active' : '' "
             >
               SignUp
@@ -133,7 +131,7 @@ const Header = () => {
           <li>
             <NavLink
               to="/login"
-              className="block text-lg font-mono sm:py-1  pl-3 font-bold   ({ isActive, isPending }) =>
+              className="block  text-black text-lg font-mono sm:py-1  pl-3 font-bold   ({ isActive, isPending }) =>
                 isPending ? 'pending' : isActive ? 'active' : '' "
             >
               Login
@@ -142,14 +140,14 @@ const Header = () => {
         </ul>
         {/* )} */}
 
-        <div className="dropdown dropdown-end">
+        {/* <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              {/* {user && user.photoURL ? (
+              {user && user.photoURL ? (
                 <img src={user.photoURL} alt="" />
               ) : (
                 <img src="https://i.ibb.co/S5PRg6x/download.jpg" alt="" />
-              )} */}
+              )}
             </div>
           </label>
           <ul
@@ -157,10 +155,10 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              {/* <p className="justify-between  ">{user?.displayName}</p> */}
+              <p className="justify-between  ">{user?.displayName}</p>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );
