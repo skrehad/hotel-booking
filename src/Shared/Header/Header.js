@@ -107,7 +107,7 @@ const Header = () => {
             alt=""
           />
           <div className="ml-2 italic font-bold mt-2.5 headerIcon">
-            Easy Shop
+            Hotel Booking
           </div>
         </Link>
       </div>
@@ -123,7 +123,7 @@ const Header = () => {
         <ul className="flex mx-4 ">
           <li className="">
             <NavLink
-              to="/register"
+              to="/SignUp"
               className="block text-lg font-mono sm:py-1 lg:mx-4 mx-1 font-bold   ({ isActive, isPending }) =>
                 isPending ? 'pending' : isActive ? 'active' : '' "
             >

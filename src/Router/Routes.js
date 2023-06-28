@@ -13,6 +13,8 @@ import Products from "../Components/Products/Products";
 // import PrivateRouter from "./PrivateRouter";
 // import OverAllReview from "../Components/OverAllReview/OverAllReview";
 import Main from "../Layouts/Main";
+import SignUp from "../Components/SignUp/SignUp";
+import Login from "../Components/Login/Login";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -75,8 +77,8 @@ const Routes = () => {
           element: <Login></Login>,
         },
         {
-          path: "/register",
-          element: <Register></Register>,
+          path: "/signUp",
+          element: <SignUp></SignUp>,
         },
       ],
     },
