@@ -101,7 +101,7 @@ const Header = () => {
         <Link to="/" className="ml-2 flex normal-case text-xl">
           <img
             className="w-[50px] rounded-lg headerImage h-[50px]"
-            src="https://i.ibb.co/NNT3GBS/favicon.jpg"
+            src="https://i.ibb.co/1MZDM9G/favicon.png"
             alt=""
           />
           <div className="ml-2 text-black italic font-bold mt-2.5 headerIcon">
@@ -112,6 +112,7 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="nav-menu menu-horizontal px-1">{menuItems}</ul>
       </div>
+
       <div className="nav-menu navbar-end">
         {/* {user && user.uid ? (
           <button onClick={logout} className="mr-4 text-lg font-mono font-bold">
@@ -160,6 +161,26 @@ const Header = () => {
           </ul>
         </div> */}
       </div>
+      <label
+        htmlFor="dashboardDrawer"
+        tabIndex={2}
+        className="btn p-0 btn-ghost lg:hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
+      </label>
     </div>
   );
 };

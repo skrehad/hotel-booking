@@ -59,6 +59,10 @@ const Routes = () => {
           path: "/dashboard",
           element: <MyBooking></MyBooking>,
         },
+        // {
+        //   path: "/dashboard",
+        //   element: <MyBooking></MyBooking>,
+        // },
         {
           path: "/dashboard/users",
           element: <AllUsers></AllUsers>,
