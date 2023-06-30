@@ -64,7 +64,7 @@ const Login = () => {
       <div className="card rounded-none bg-[url('https://i.ibb.co/dkGZY8x/St-Regis-Mauritius-Resort.jpg')]  shadow-2xl">
         <div className="flex mx-auto mt-14 mb-8">
           <img
-            className="w-[50px] rounded-lg headerImage h-[50px]"
+            className="w-[50px] rounded-lg h-[50px]"
             src="https://i.ibb.co/NNT3GBS/favicon.jpg"
             alt=""
           />

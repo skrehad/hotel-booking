@@ -72,28 +72,28 @@ const SignUp = () => {
 
   return (
     <div>
-      <div className="card rounded-none bg-[url('https://i.ibb.co/dkGZY8x/St-Regis-Mauritius-Resort.jpg')]  shadow-2xl">
+      <div className="card rounded-none bg-[url('https://i.ibb.co/bgtHgPz/setai-kh-penthouseb-pool-1566480093.jpg')] bg-no-repeat  shadow-2xl">
         <div className="flex mx-auto mt-14 mb-8">
           <img
-            className="w-[50px] rounded-lg headerImage h-[50px]"
+            className="w-[50px] rounded-lg h-[50px]"
             src="https://i.ibb.co/NNT3GBS/favicon.jpg"
             alt=""
           />
-          <div className=" ml-2 uppercase text-black italic font-bold mt-3">
+          <div className=" ml-2 uppercase text-white italic font-bold mt-3">
             Hotel Booking.com
           </div>
         </div>
 
-        <div className="card cardDiv m-auto flex-shrink-0 lg:w-full max-w-sm mb-20 shadow-3xl">
+        <div className="card cardDiv m-auto flex-shrink-0 lg:w-full max-w-sm mb-10 shadow-3xl">
           <div>
-            <h1 className="text-3xl mt-10 text-white  text-center">Sign Up</h1>
+            <h1 className="text-3xl mt-10 text-black  text-center">Sign Up</h1>
           </div>
 
           <form onSubmit={signUp}>
             <div className="card-body cardBody gap-0 px-16">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-[18px] text-white">
+                  <span className="label-text text-[18px] text-black">
                     Name
                   </span>
                 </label>
@@ -107,7 +107,7 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-[18px] text-white">
+                  <span className="label-text text-[18px] text-black">
                     Email
                   </span>
                 </label>
@@ -121,7 +121,7 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-[18px] text-white">
+                  <span className="label-text text-[18px] text-black">
                     Password
                   </span>
                 </label>
