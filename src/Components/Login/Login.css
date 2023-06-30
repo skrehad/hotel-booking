@@ -1,0 +1,11 @@
+@media screen and (max-width: 640px) {
+    .cardDiv{
+        margin-left: 20px;
+        margin-right: 20px;
+    }  
+    .cardBody{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+  
+}
