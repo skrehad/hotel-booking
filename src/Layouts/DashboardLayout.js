@@ -2,7 +2,6 @@ import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import Header from "../Shared/Header/Header";
 import Footer from "../Shared/Footer/Footer";
-import "./DashboardLayout.css";
 
 const DashboardLayout = () => {
   //   const { user } = useContext(AuthContext);
@@ -17,12 +16,9 @@ const DashboardLayout = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboardDrawer" className="drawer-overlay"></label>
-          <ul className="menu bg-white p-4 w-80">
-            <li className="my-2 abc">
-              <Link
-                to="/dashboard"
-                className="({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'active' : '' "
-              >
+          <ul className="menu bg-white p-6">
+            <li className="my-2 text-[#75313f]">
+              <Link to="/dashboard" className="hover:text-[#ff0336] ">
                 My Booking
               </Link>
             </li>
@@ -32,7 +28,7 @@ const DashboardLayout = () => {
               <li className="my-1">
                 <NavLink
                   to="/dashboard/users "
-                  // className="({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'active' : '' "
+                  className="hover:text-[#ff0336] "
                 >
                   All Users
                 </NavLink>
@@ -40,7 +36,7 @@ const DashboardLayout = () => {
               <li className="my-1">
                 <NavLink
                   to="/dashboard/addHotel"
-                  // className="({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'active' : '' "
+                  className="hover:text-[#ff0336] "
                 >
                   Add A Hotel
                 </NavLink>
@@ -48,9 +44,17 @@ const DashboardLayout = () => {
               <li className="my-1">
                 <NavLink
                   to="/dashboard/manageHotels"
-                  // className="({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'active' : '' "
+                  className="hover:text-[#ff0336] "
                 >
                   Manage Hotels
+                </NavLink>
+              </li>
+              <li className="my-1">
+                <NavLink
+                  to="/dashboard/addBlog"
+                  className="hover:text-[#ff0336] "
+                >
+                  Add Blog
                 </NavLink>
               </li>
             </>
