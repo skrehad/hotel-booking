@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Header = () => {
-  //   const { user, logOut } = useContext(AuthContext);
-  //   const logout = () => {
-  //     logOut()
-  //       .then(() => {
-  //         toast.success("LogOut Successfully ");
-  //       })
-  //       .catch(() => {});
-  //   };
+  const { user, logOut } = useContext(AuthContext);
+  const logout = () => {
+    logOut()
+      .then(() => {
+        toast.success("LogOut Successfully ");
+      })
+      .catch(() => {});
+  };
 
   const menuItems = (
     <>
@@ -114,52 +116,54 @@ const Header = () => {
       </div>
 
       <div className="nav-menu navbar-end">
-        {/* {user && user.uid ? (
+        {user && user.uid ? (
           <button onClick={logout} className="mr-4 text-lg font-mono font-bold">
             LogOut
           </button>
-        ) : ( */}
-        <ul className="flex mx-4 ">
-          <li className="">
-            <NavLink
-              to="/signUp"
-              className="block text-black text-lg font-mono sm:py-1 lg:mx-4 mx-1 font-bold   ({ isActive, isPending }) =>
+        ) : (
+          <ul className="flex mx-4 ">
+            <li className="">
+              <NavLink
+                to="/signUp"
+                className="block text-black text-lg font-mono sm:py-1 lg:mx-4 mx-1 font-bold   ({ isActive, isPending }) =>
                 isPending ? 'pending' : isActive ? 'active' : '' "
-            >
-              SignUp
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/login"
-              className="block  text-black text-lg font-mono sm:py-1  pl-3 font-bold   ({ isActive, isPending }) =>
-                isPending ? 'pending' : isActive ? 'active' : '' "
-            >
-              Login
-            </NavLink>
-          </li>
-        </ul>
-        {/* )} */}
-
-        {/* <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              {user && user.photoURL ? (
-                <img src={user.photoURL} alt="" />
-              ) : (
-                <img src="https://i.ibb.co/S5PRg6x/download.jpg" alt="" />
-              )}
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-          >
+              >
+                SignUp
+              </NavLink>
+            </li>
             <li>
-              <p className="justify-between  ">{user?.displayName}</p>
+              <NavLink
+                to="/login"
+                className="block  text-black text-lg font-mono sm:py-1  pl-3 font-bold   ({ isActive, isPending }) =>
+                isPending ? 'pending' : isActive ? 'active' : '' "
+              >
+                Login
+              </NavLink>
             </li>
           </ul>
-        </div> */}
+        )}
+
+        {user && (
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                {user && user.photoURL ? (
+                  <img src={user.photoURL} alt="" />
+                ) : (
+                  <img src="https://i.ibb.co/S5PRg6x/download.jpg" alt="" />
+                )}
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <p className="justify-between  ">{user?.displayName}</p>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
       <label
         htmlFor="dashboardDrawer"

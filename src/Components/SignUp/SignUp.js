@@ -22,7 +22,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast.success("Successfully Register");
+        toast.success("Successfully SignUp");
         event.target.reset();
         navigate(from, { replace: true });
         displayName(name);
