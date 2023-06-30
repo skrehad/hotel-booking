@@ -43,15 +43,17 @@ const Header = () => {
           About
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/dashboard"
-          className="block text-black text-lg font-mono font-bold mx-4 sm:py-1    ({ isActive, isPending }) =>
+      {user && (
+        <li>
+          <NavLink
+            to="/dashboard"
+            className="block text-black text-lg font-mono font-bold mx-4 sm:py-1    ({ isActive, isPending }) =>
     isPending ? 'pending' : isActive ? 'active' : '' "
-        >
-          Dashboard
-        </NavLink>
-      </li>
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      )}
       <li>
         <NavLink
           to="/blog"

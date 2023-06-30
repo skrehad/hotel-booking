@@ -14,6 +14,7 @@ import AddHotel from "../Components/Dashboard/AddHotel/AddHotel";
 import AllUsers from "../Components/Dashboard/AllUsers/AllUsers";
 import MyBooking from "../Components/Dashboard/MyBooking/MyBooking";
 import DashboardLayout from "../Layouts/DashboardLayout";
+import PrivateRouter from "./PrivateRoute";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -53,16 +54,16 @@ const Routes = () => {
     },
     {
       path: "/dashboard",
-      element: <DashboardLayout></DashboardLayout>,
+      element: (
+        <PrivateRouter>
+          <DashboardLayout></DashboardLayout>
+        </PrivateRouter>
+      ),
       children: [
         {
           path: "/dashboard",
           element: <MyBooking></MyBooking>,
         },
-        // {
-        //   path: "/dashboard",
-        //   element: <MyBooking></MyBooking>,
-        // },
         {
           path: "/dashboard/users",
           element: <AllUsers></AllUsers>,
