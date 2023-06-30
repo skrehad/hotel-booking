@@ -29,7 +29,7 @@ const SignUp = () => {
       })
       .catch((error) => {
         const errorMsg = error.message;
-        toast.warning(errorMsg);
+        toast.error(errorMsg);
       });
   };
 
@@ -38,7 +38,7 @@ const SignUp = () => {
       .then(() => {})
       .catch((error) => {
         const errorMsg = error.message;
-        toast.warning(errorMsg);
+        toast.error(errorMsg);
       });
   };
 
@@ -52,7 +52,7 @@ const SignUp = () => {
       })
       .catch((error) => {
         const errorMsg = error.message;
-        toast.warning(errorMsg);
+        toast.error(errorMsg);
       });
   };
 
@@ -66,7 +66,7 @@ const SignUp = () => {
       })
       .catch((error) => {
         const errorMsg = error.message;
-        toast.warning(errorMsg);
+        toast.error(errorMsg);
       });
   };
 

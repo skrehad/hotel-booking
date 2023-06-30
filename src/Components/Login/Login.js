@@ -27,7 +27,7 @@ const Login = () => {
       .catch((error) => {
         const errorMsg = error.message;
         // console.error(errorMsg);
-        toast.warning(errorMsg);
+        toast.error(errorMsg);
       }); // console.log(email, password);
   };
 
@@ -41,7 +41,7 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMsg = error.message;
-        toast.warning(errorMsg);
+        toast.error(errorMsg);
       });
   };
 
@@ -55,7 +55,7 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMsg = error.message;
-        toast.warning(errorMsg);
+        toast.error(errorMsg);
       });
   };
 
