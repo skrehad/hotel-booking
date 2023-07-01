@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
-// import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
-// import { toast } from "react-hot-toast";
-// import { useNavigate } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {
   const { user } = useContext(AuthContext);
@@ -14,7 +12,7 @@ const AddBlog = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const imageHostKey = process.env.REACT_APP_imgbb_key;
   // console.log(imageHostKey);
 
@@ -38,22 +36,22 @@ const AddBlog = () => {
             date: data.date,
             image: imgData.data.url,
           };
-          console.log(blog);
+          // console.log(blog);
 
-          // fetch("https://doctors-portal-server-five-black.vercel.app/doctors", {
-          //   method: "POST",
-          //   headers: {
-          //     "content-type": "application/json",
-          //     // authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          //   },
-          //   body: JSON.stringify(blog),
-          // })
-          //   .then((res) => res.json())
-          //   .then((result) => {
-          //     console.log(result);
-          //     toast.success("your blog is added successfully");
-          //     navigate("/blog");
-          //   });
+          fetch("http://localhost:5000/blog", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              // authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(blog),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              console.log(result);
+              toast.success("your blog is added successfully");
+              navigate("/blog");
+            });
         }
       });
   };

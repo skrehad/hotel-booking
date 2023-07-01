@@ -37,10 +37,20 @@ const Blog = () => {
                   </p>
                 </div>
                 <div class="flex items-center">
+                  {/* <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                {user && user.photoURL ? (
+                  <img src={user.photoURL} alt="" />
+                ) : (
+                  <img src="https://i.ibb.co/S5PRg6x/download.jpg" alt="" />
+                )}
+              </div>
+            </label> */}
+
                   <img
                     alt=""
                     class="w-10 h-10 rounded-full mr-4"
-                    src="/img/jonathan.jpg"
+                    src="https://i.ibb.co/S5PRg6x/download.jpg"
                   />
                   <div class="text-sm">
                     <p class="text-gray-900 leading-none">Jonathan Reinink</p>
