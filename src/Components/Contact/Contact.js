@@ -18,7 +18,7 @@ const Contact = () => {
             </div>
             <div className="text font-bold font-mono">
               <h3>Address</h3>
-              <p>412 Dhaka, Mirpur Road</p>
+              <p>San Antonio, TX, USA</p>
             </div>
           </div>
           <div className="box">
@@ -27,7 +27,7 @@ const Contact = () => {
             </div>
             <div className="text font-bold font-mono">
               <h3>Phone</h3>
-              <p>01996064707</p>
+              <p>+87787845784</p>
             </div>
           </div>
           <div className="box">
@@ -36,7 +36,7 @@ const Contact = () => {
             </div>
             <div className="text font-bold font-mono">
               <h3>Email</h3>
-              <p>rehadhasan664@gmail.com</p>
+              <p>hotelbookin2002@gmail.com</p>
             </div>
           </div>
         </div>

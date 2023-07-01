@@ -12,7 +12,7 @@ const Footer = () => {
           srcset=""
         />
         <p className="m-auto">Hotel Booking.com</p>
-        <p className="m-auto">Providing reliable hotels since 1992</p>
+        <p className="m-auto">Providing reliable hotels since 2002</p>
       </div>
       <div className="m-auto">
         <span className="footer-title m-auto">Services</span>
