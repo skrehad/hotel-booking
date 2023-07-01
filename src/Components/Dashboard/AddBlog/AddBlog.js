@@ -1,59 +1,61 @@
-import React from "react";
+import React, { useContext } from "react";
 // import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+// import { toast } from "react-hot-toast";
+// import { useNavigate } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {
+  const { user } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   // const navigate = useNavigate();
-  // const imageHostKey = process.env.REACT_APP_imgbb_key;
-  //   console.log(imageHostKey);
-
-  // const handleAddBlog = (data) => {
-  //   const image = data.image[0];
-  //   const formData = new FormData();
-  //   formData.append("image", image);
-  //   const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
-  //   fetch(url, {
-  //     method: "POST",
-  //     body: formData,
-  //   })
-  //     .then((res) => res.json())
-  //     .then((imgData) => {
-  //       if (imgData.success) {
-  //         const doctor = {
-  //           name: data.name,
-  //           email: data.email,
-  //           specialty: data.specialty,
-  //           image: imgData.data.url,
-  //         };
-
-  //         fetch("https://doctors-portal-server-five-black.vercel.app/doctors", {
-  //           method: "POST",
-  //           headers: {
-  //             "content-type": "application/json",
-  //             // authorization: `bearer ${localStorage.getItem("accessToken")}`,
-  //           },
-  //           body: JSON.stringify(doctor),
-  //         })
-  //           .then((res) => res.json())
-  //           .then((result) => {
-  //             console.log(result);
-  //             toast.success(`${data.name} is added successfully`);
-  //             navigate("/blog");
-  //           });
-  //       }
-  //     });
-  // };
+  const imageHostKey = process.env.REACT_APP_imgbb_key;
+  // console.log(imageHostKey);
 
   const handleAddBlog = (data) => {
-    console.log(data.title);
-    console.log(data.description);
-    console.log(data.date);
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => {
+        if (imgData.success) {
+          const blog = {
+            publisherName: user.displayName,
+            publisherPhoto: user.photoURL,
+            title: data.title,
+            description: data.description,
+            date: data.date,
+            image: imgData.data.url,
+          };
+          console.log(blog);
+
+          // fetch("https://doctors-portal-server-five-black.vercel.app/doctors", {
+          //   method: "POST",
+          //   headers: {
+          //     "content-type": "application/json",
+          //     // authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          //   },
+          //   body: JSON.stringify(blog),
+          // })
+          //   .then((res) => res.json())
+          //   .then((result) => {
+          //     console.log(result);
+          //     toast.success("your blog is added successfully");
+          //     navigate("/blog");
+          //   });
+        }
+      });
   };
 
   return (
