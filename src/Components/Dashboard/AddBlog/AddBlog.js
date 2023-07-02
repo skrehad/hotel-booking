@@ -74,6 +74,7 @@ const AddBlog = () => {
               {...register("title", {
                 required: "Name is Required",
               })}
+              required
               className="input input-bordered w-full max-w-xs"
             />
             {errors.name && (
@@ -89,6 +90,7 @@ const AddBlog = () => {
               {...register("description", {
                 required: "description is Required",
               })}
+              required
               className="input  input-bordered w-full max-w-xs"
             />
             {errors.name && (
@@ -104,6 +106,7 @@ const AddBlog = () => {
 
             <input
               type="date"
+              required
               className="p-3 w-full max-w-xs rounded"
               {...register("date", {
                 required: "Date is Required",
@@ -117,6 +120,7 @@ const AddBlog = () => {
             </label>
             <input
               type="file"
+              required
               {...register("image", {
                 required: "Photo is Required",
               })}
