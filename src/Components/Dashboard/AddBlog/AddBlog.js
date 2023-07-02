@@ -62,7 +62,7 @@ const AddBlog = () => {
         <h1 className=" text-4xl mb-5 text-center text-black">Add A Blog</h1>
 
         <form
-          className="bg-white mb-10 w-96 mx-auto p-5 rounded-lg"
+          className="bg-white mb-10 lg:w-96 md:w-96 mx-auto p-5 rounded-lg"
           onSubmit={handleSubmit(handleAddBlog)}
         >
           <div className="form-control max-w-xs">
@@ -71,6 +71,7 @@ const AddBlog = () => {
             </label>
             <input
               type="text"
+              placeholder="Title"
               {...register("title", {
                 required: "Name is Required",
               })}
@@ -87,11 +88,12 @@ const AddBlog = () => {
             </label>
             <textarea
               type="text"
+              placeholder="Description"
               {...register("description", {
                 required: "description is Required",
               })}
               required
-              className="input  input-bordered w-full max-w-xs"
+              className="input pt-2 input-bordered w-full max-w-xs"
             />
             {errors.name && (
               <p className="text-red-500">{errors.name.message}</p>

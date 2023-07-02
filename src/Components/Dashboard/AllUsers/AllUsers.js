@@ -35,7 +35,7 @@ const AllUsers = () => {
   };
 
   return (
-    <div>
+    <div className="w-80 mx-auto md:w-full lg:w-full">
       <h1 className=" text-4xl mb-5 text-center text-black">All Users</h1>
 
       <div className="overflow-x-auto">
