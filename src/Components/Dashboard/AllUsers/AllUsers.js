@@ -1,33 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../../Shared/Loading/Loading";
+import { toast } from "react-hot-toast";
+import ConfirmationModal from "../../../Shared/ConfirmationModal/ConfirmationModal";
 
 const AllUsers = () => {
-  const { isLoading, data: allUsers } = useQuery("blogData", () =>
+  const [deletingUser, setDeletingUser] = useState(null);
+  const closeModal = () => {
+    setDeletingUser(null);
+  };
+
+  const {
+    isLoading,
+    data: allUsers,
+    refetch,
+  } = useQuery("blogData", () =>
     fetch("http://localhost:5000/users").then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
   }
 
-  // const handleDeleteDoctor = (doctor) => {
-  //   fetch(
-  //     `https://doctors-portal-server-five-black.vercel.app/doctors/${doctor._id}`,
-  //     {
-  //       method: "DELETE",
-  //       headers: {
-  //         authorization: `bearer ${localStorage.getItem("accessToken")}`,
-  //       },
-  //     }
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.deletedCount > 0) {
-  //         refetch();
-  //         toast.success(`Doctor ${doctor.name} deleted successfully`);
-  //       }
-  //     });
-  // };
+  const handleDeleteDoctor = (user) => {
+    fetch(`http://localhost:5000/users/${user._id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          refetch();
+          toast.success(`User ${user.name} deleted successfully`);
+        }
+      });
+  };
 
   return (
     <div>
@@ -68,13 +73,29 @@ const AllUsers = () => {
                   </button>
                 </td>
                 <td>
-                  <button className="btn btn-sm">Delete</button>
+                  <label
+                    onClick={() => setDeletingUser(user)}
+                    htmlFor="confirmation-modal"
+                    className="btn btn-sm"
+                  >
+                    Delete
+                  </label>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {deletingUser && (
+        <ConfirmationModal
+          title={`Are you sure you want to delete?`}
+          message={`If you delete ${deletingUser.name}. It cannot be undone.`}
+          successAction={handleDeleteDoctor}
+          successButtonName="Delete"
+          modalData={deletingUser}
+          closeModal={closeModal}
+        ></ConfirmationModal>
+      )}
     </div>
   );
 };
