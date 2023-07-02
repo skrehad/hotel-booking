@@ -9,6 +9,14 @@ const Blog = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+  const subscribeForm = (event) => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const result = { name, email };
+    console.log(result);
+    event.target.reset();
+  };
   return (
     <div>
       <div className="bg-[url('https://i.ibb.co/yswPhR5/photo-1445019980597-93fa8acb246c.jpg')] h-[200px] md:h-[300px] lg:h-[300px] bg-cover bg-no-repeat">
@@ -18,7 +26,7 @@ const Blog = () => {
           </h1>
         </div>
       </div>
-      <div className="lg:mx-32 md:mx-20 mx-10 mt-10">
+      <div className="lg:mx-28 md:mx-20 mx-10 mt-10">
         <div>
           <h1 className="text-[50px] text-black md:text-center lg:text-left mb-10">
             The Blog
@@ -71,40 +79,6 @@ const Blog = () => {
                   </div>
                 </div>
               ))}
-
-            {/* <div class="max-w-sm mb-5 w-full md:mx-auto lg:max-w-full lg:flex">
-              <div
-                className="h-48 bg-[url('https://i.ibb.co/HXZRg7d/baldwin-home12621-610x610.jpg')] lg:h-auto lg:w-60 md:h-[250px] flex-none bg-cover text-center overflow-hidden"
-                title=""
-              ></div>
-              <div class="  bg-white     rounded-b p-4 flex flex-col justify-between leading-normal">
-                <div class="mb-8">
-                  <div class="text-gray-900 font-bold text-xl mb-2">
-                    Disclosing the Secrets of Success in Luxury Hospitality
-                  </div>
-                  <p class="text-black text-base">
-                    Every good day starts off with a cappuccino, and there’s no
-                    place better to enjoy some frothy caffeine than at the
-                    Bulgari Hotel. Meh synth Schlitz, tempor duis single-origin
-                    coffee ea next level ethnic fingerstache fanny pack nostrud.
-                    Photo booth...
-                  </p>
-                </div>
-                <div class="flex items-center">
-                  
-
-                  <img
-                    alt=""
-                    class="w-10 h-10 rounded-full mr-4"
-                    src="https://i.ibb.co/S5PRg6x/download.jpg"
-                  />
-                  <div class="text-sm">
-                    <p class="text-gray-900 leading-none">Jonathan Reinink</p>
-                    <p class="text-gray-600">Aug 18</p>
-                  </div>
-                </div>
-              </div>
-            </div> */}
           </div>
           <div className="w-none ">
             <div class="flex justify-center sticky top-20 flex-wrap ">
@@ -112,16 +86,25 @@ const Blog = () => {
                 <p class="text-white font-bold text-sm text-center mb-3">
                   Join our blogs
                 </p>
-                <div class="flex justify-between mb-3">
-                  <input
-                    class=" shadow-inner text-white px-3 text-sm bg-gray-900 border-b border-gray-700"
-                    placeholder="Enter your email"
-                    type="text"
-                  />
-                  <button class="shadow-lg bg-blue-600 text-white font-bold text-sm rounded px-3 py-2">
-                    Subscribe
-                  </button>
-                </div>
+                <form onSubmit={subscribeForm}>
+                  <div class="mb-3  text-center">
+                    <input
+                      class=" shadow-inner w-full p-2 text-white  text-sm bg-gray-900 border-b border-gray-700"
+                      placeholder="Enter your Name"
+                      name="name"
+                      type="text"
+                    />
+                    <input
+                      class=" shadow-inner w-full p-2 text-white mt-3 text-sm bg-gray-900 border-b border-gray-700"
+                      placeholder="Enter your email"
+                      name="email"
+                      type="email"
+                    />
+                    <button class="shadow-lg bg-blue-600 mt-3 text-white font-bold text-sm rounded px-3 py-2">
+                      Subscribe
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
