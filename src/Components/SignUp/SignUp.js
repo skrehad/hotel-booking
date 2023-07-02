@@ -26,6 +26,19 @@ const SignUp = () => {
         event.target.reset();
         navigate(from, { replace: true });
         displayName(name);
+
+        const setUser = { name, email };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(setUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
       .catch((error) => {
         const errorMsg = error.message;
@@ -62,7 +75,22 @@ const SignUp = () => {
         const user = result.user;
         toast.success("Login Successfully by Google");
         navigate(from, { replace: true });
-        console.log(user);
+        // console.log(user);
+        const name = user.displayName;
+        const email = user.email;
+        const setUser = { name, email };
+        // console.log(setUser);
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(setUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
       .catch((error) => {
         const errorMsg = error.message;
@@ -102,7 +130,7 @@ const SignUp = () => {
                   type="text"
                   name="name"
                   placeholder="Enter your Name"
-                  className="input input-bordered bg-none"
+                  className="input input-bordered bg-black"
                 />
               </div>
               <div className="form-control">
@@ -116,7 +144,7 @@ const SignUp = () => {
                   type="email"
                   name="email"
                   placeholder="Enter your Email"
-                  className="input input-bordered bg-none"
+                  className="input input-bordered bg-black"
                 />
               </div>
               <div className="form-control">
@@ -129,7 +157,7 @@ const SignUp = () => {
                   type="password"
                   name="password"
                   placeholder="Enter your Password"
-                  className="input input-bordered bg-none"
+                  className="input input-bordered bg-black"
                 />
               </div>
               <div className="form-control mt-6">
