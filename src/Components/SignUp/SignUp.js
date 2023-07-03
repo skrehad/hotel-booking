@@ -83,7 +83,6 @@ const SignUp = () => {
           .then((data) => {
             console.log(data);
           });
-        // console.log(user);
       })
       .catch((error) => {
         const errorMsg = error.message;
