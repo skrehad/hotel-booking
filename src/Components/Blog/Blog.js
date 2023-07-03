@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
+import { toast } from "react-hot-toast";
 
 const Blog = () => {
   const { isLoading, data: blogs } = useQuery("blogData", () =>
@@ -14,7 +15,7 @@ const Blog = () => {
     const name = event.target.name.value;
     const email = event.target.email.value;
     const result = { name, email };
-    console.log(result);
+    toast.success(`${result.name}.Thanks for Subscribe`);
     event.target.reset();
   };
   return (
