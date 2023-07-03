@@ -9,7 +9,14 @@ const SignUp = () => {
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  // const [createdUserEmail, setCreatedUserEmail] = useState("");
+  // const [token] = useToken(createdUserEmail);
+
   const from = location.state?.from?.pathname || "/";
+
+  // if (token) {
+  //   navigate("/");
+  // }
 
   const signUp = (event) => {
     event.preventDefault();
@@ -37,7 +44,7 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // setCreatedUserEmail(email);
           });
       })
       .catch((error) => {
@@ -61,7 +68,22 @@ const SignUp = () => {
         const user = result.user;
         toast.success("Login Successfully by Facebook");
         navigate(from, { replace: true });
-        console.log(user);
+        const name = user.displayName;
+        const email = user.email;
+        const setUser = { name, email };
+        // console.log(setUser);
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(setUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+        // console.log(user);
       })
       .catch((error) => {
         const errorMsg = error.message;
@@ -75,11 +97,9 @@ const SignUp = () => {
         const user = result.user;
         toast.success("Login Successfully by Google");
         navigate(from, { replace: true });
-        // console.log(user);
         const name = user.displayName;
         const email = user.email;
         const setUser = { name, email };
-        // console.log(setUser);
         fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
