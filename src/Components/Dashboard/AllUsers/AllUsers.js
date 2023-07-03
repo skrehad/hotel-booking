@@ -14,7 +14,7 @@ const AllUsers = () => {
     isLoading,
     data: allUsers,
     refetch,
-  } = useQuery("blogData", () =>
+  } = useQuery("allUsers", () =>
     fetch("http://localhost:5000/users").then((res) => res.json())
   );
   if (isLoading) {
@@ -37,9 +37,9 @@ const AllUsers = () => {
   const handleMakeAdmin = (id) => {
     fetch(`http://localhost:5000/users/admin/${id}`, {
       method: "PUT",
-      headers: {
-        // authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
+      // headers: {
+      //   // authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      // },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -67,7 +67,7 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {allUsers.map((user, i) => (
+            {allUsers?.map((user, i) => (
               <tr className="text-center text-black" key={user._id}>
                 <th>{i + 1}</th>
                 <td>{user.name}</td>
