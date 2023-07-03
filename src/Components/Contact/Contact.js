@@ -3,8 +3,20 @@ import "./Contact.css";
 import { FaHome } from "react-icons/fa";
 import { IoIosCall } from "react-icons/io";
 import { MdOutlineEmail } from "react-icons/md";
+import { toast } from "react-hot-toast";
 
 const Contact = () => {
+  const contactForm = (event) => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const textarea = event.target.textarea.value;
+    const result = { name, email, textarea };
+    // console.log(result);
+    toast.success(`${result.name} your information submitted successfully`);
+    event.target.reset();
+  };
+
   return (
     <section className="contact">
       <div className="content">
@@ -41,11 +53,15 @@ const Contact = () => {
           </div>
         </div>
         <div className="contactFrom">
-          <form className="text-center font-bold font-mono">
+          <form
+            onSubmit={contactForm}
+            className="text-center font-bold font-mono"
+          >
             <h2>Send Message</h2>
             <div className="inputBox">
               <input
                 type="text"
+                name="name"
                 placeholder="Enter Your Full Name"
                 className="input input-bordered w-full max-w-xs"
                 required
@@ -54,6 +70,7 @@ const Contact = () => {
             <div className="inputBox">
               <input
                 type="text"
+                name="email"
                 placeholder="Enter Email"
                 required
                 className="input  w-full max-w-xs"
@@ -61,6 +78,7 @@ const Contact = () => {
             </div>
             <div className="inputBox">
               <textarea
+                name="textarea"
                 className="textarea textarea-bordered h-24 w-80"
                 placeholder="Type your massage..."
                 required
