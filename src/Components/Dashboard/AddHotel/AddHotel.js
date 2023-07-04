@@ -29,7 +29,7 @@ const AddHotel = () => {
         if (imgData.success) {
           const hotel = {
             publisher: user.displayName,
-            title: data.name,
+            name: data.name,
             description: data.description,
             rating: data.rating,
             price: data.price,
@@ -250,7 +250,7 @@ const AddHotel = () => {
           </div>
 
           <div className="text-center">
-            <input className="btn   mt-4" value="Add a Blog" type="submit" />
+            <input className="btn   mt-4" value="Add a Hotel" type="submit" />
           </div>
         </form>
       </div>

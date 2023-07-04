@@ -30,7 +30,7 @@ const DashboardLayout = () => {
                   to="/dashboard/users "
                   className="hover:text-[#ff0336] "
                 >
-                  All Users
+                  Manage Users
                 </NavLink>
               </li>
               <li className="my-1">
