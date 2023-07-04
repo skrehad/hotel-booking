@@ -57,13 +57,13 @@ const ManageHotel = () => {
               <tr className="text-center text-black" key={hotel._id}>
                 <th>{i + 1}</th>
                 <td className="text-base font-bold">{hotel.publisher}</td>
-                <td className="font-bold text-base">{hotel.name}</td>
+                <td className="font-bold text-base px-0">{hotel.name}</td>
                 <td>
                   <Rating name="read-only" value={hotel.rating} readOnly />
                 </td>
-                <td>
+                <td className="px-0">
                   <img
-                    className="h-32 w-full"
+                    className="h-32 rounded-lg w-full"
                     src={hotel.image}
                     alt=""
                     srcset=""

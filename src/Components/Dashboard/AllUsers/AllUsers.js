@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import ConfirmationModal from "../../../Shared/ConfirmationModal/ConfirmationModal";
 
 const AllUsers = () => {
+  const [searchItem, setSearchItem] = useState("");
   const [deletingUser, setDeletingUser] = useState(null);
   const closeModal = () => {
     setDeletingUser(null);
@@ -49,11 +50,34 @@ const AllUsers = () => {
         }
       });
   };
+  const searchHandler = (event) => {
+    event.preventDefault();
+    event.target.reset();
+  };
 
   return (
     <div className="w-80 mx-auto md:w-full lg:w-full">
       <h1 className=" text-4xl mb-5 text-center text-black">All Users</h1>
-
+      <div className=" bg-gray-100 mb-8 flex justify-center items-center">
+        <div className=" text-center rounded-lg">
+          <form onSubmit={searchHandler} className="w-80">
+            <div className="flex items-center border border-purple-900 bg-white rounded-lg overflow-hidden pl-1 justify-between">
+              <input
+                id="searchInput"
+                className="text-base bg-white text-black flex-grow outline-none font-bold font-mono px-2"
+                type="text"
+                placeholder="Search Email or Name"
+                onChange={(event) => setSearchItem(event.target.value)}
+              />
+              <div className="ms:flex items-center pl-2 rounded-lg  mx-auto ">
+                <button className="bg-black text-white font-bold text-base rounded-lg px-4 py-2 font-mono">
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
       <div className="overflow-x-auto">
         <table className="table border-2 mb-5">
           {/* head */}
@@ -67,32 +91,42 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {allUsers?.map((user, i) => (
-              <tr className="text-center text-black" key={user._id}>
-                <th>{i + 1}</th>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>
-                  {user?.role !== "admin" && (
-                    <button
-                      onClick={() => handleMakeAdmin(user._id)}
-                      className="btn btn-sm btn-primary"
+            {allUsers
+              .filter((user) => {
+                if (searchItem === "") {
+                  return user;
+                } else if (
+                  user.email.toLowerCase().includes(searchItem.toLowerCase())
+                ) {
+                  return user;
+                }
+              })
+              .map((user, i) => (
+                <tr className="text-center text-black" key={user._id}>
+                  <th>{i + 1}</th>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    {user?.role !== "admin" && (
+                      <button
+                        onClick={() => handleMakeAdmin(user._id)}
+                        className="btn btn-sm btn-primary"
+                      >
+                        Make Admin
+                      </button>
+                    )}
+                  </td>
+                  <td>
+                    <label
+                      onClick={() => setDeletingUser(user)}
+                      htmlFor="confirmation-modal"
+                      className="btn btn-sm text-white"
                     >
-                      Make Admin
-                    </button>
-                  )}
-                </td>
-                <td>
-                  <label
-                    onClick={() => setDeletingUser(user)}
-                    htmlFor="confirmation-modal"
-                    className="btn btn-sm text-white"
-                  >
-                    Delete
-                  </label>
-                </td>
-              </tr>
-            ))}
+                      Delete
+                    </label>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
