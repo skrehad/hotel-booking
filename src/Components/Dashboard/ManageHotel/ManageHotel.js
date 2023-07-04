@@ -56,8 +56,8 @@ const ManageHotel = () => {
             {allHotels?.map((hotel, i) => (
               <tr className="text-center text-black" key={hotel._id}>
                 <th>{i + 1}</th>
-                <td className="text-xl">{hotel.publisher}</td>
-                <td className="font-bold text-xl">{hotel.name}</td>
+                <td className="text-base font-bold">{hotel.publisher}</td>
+                <td className="font-bold text-base">{hotel.name}</td>
                 <td>
                   <Rating name="read-only" value={hotel.rating} readOnly />
                 </td>
@@ -73,7 +73,7 @@ const ManageHotel = () => {
                   <label
                     onClick={() => setDeletingHotel(hotel)}
                     htmlFor="confirmation-modal"
-                    className="btn btn-sm"
+                    className="btn btn-sm text-white"
                   >
                     Delete
                   </label>

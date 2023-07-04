@@ -86,7 +86,7 @@ const AllUsers = () => {
                   <label
                     onClick={() => setDeletingUser(user)}
                     htmlFor="confirmation-modal"
-                    className="btn btn-sm"
+                    className="btn btn-sm text-white"
                   >
                     Delete
                   </label>
