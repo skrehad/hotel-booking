@@ -93,7 +93,7 @@ const AddBlog = () => {
                 required: "description is Required",
               })}
               required
-              className="input pt-2 input-bordered w-full max-w-xs"
+              className="input h-32 pt-2 input-bordered w-full max-w-xs"
             />
             {errors.name && (
               <p className="text-red-500">{errors.name.message}</p>
