@@ -15,7 +15,7 @@ const ManageHotel = () => {
     isLoading,
     data: allHotels,
     refetch,
-  } = useQuery("allUsers", () =>
+  } = useQuery("allHotels", () =>
     fetch("http://localhost:5000/hotels").then((res) => res.json())
   );
   if (isLoading) {
