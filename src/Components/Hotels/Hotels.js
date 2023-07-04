@@ -5,7 +5,7 @@ import Hotel from "../Hotel/Hotel";
 
 const Hotels = () => {
   const { isLoading, data: hotels } = useQuery("hotels", () =>
-    fetch("http://localhost:5000/blog").then((res) => res.json())
+    fetch("http://localhost:5000/hotels").then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
@@ -19,7 +19,7 @@ const Hotels = () => {
           </h1>
         </div>
       </div>
-      <div>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5 lg:mx-32 md:mx-20 mx-10">
         {hotels.map((hotel) => (
           <Hotel key={hotels._id} hotel={hotel}></Hotel>
         ))}
