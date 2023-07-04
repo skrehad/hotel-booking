@@ -16,6 +16,7 @@ import MyBooking from "../Components/Dashboard/MyBooking/MyBooking";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import PrivateRouter from "./PrivateRoute";
 import AddBlog from "../Components/Dashboard/AddBlog/AddBlog";
+import HotelDetail from "../Components/HotelDetail/HotelDetail";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -35,6 +36,14 @@ const Routes = () => {
           path: "/hotels",
           element: <Hotels></Hotels>,
         },
+        {
+          path: "/hotels/:id",
+          loader: async ({ params }) => {
+            return fetch(`http://localhost:5000/hotels/${params.id}`);
+          },
+          element: <HotelDetail></HotelDetail>,
+        },
+
         {
           path: "/blog",
           element: <Blog></Blog>,
