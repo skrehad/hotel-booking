@@ -132,6 +132,7 @@ const AddHotel = () => {
                 required: "price is Required",
               })}
               id="numberInput"
+              min="100"
             />
           </div>
           <div>
@@ -250,7 +251,7 @@ const AddHotel = () => {
           </div>
 
           <div className="text-center">
-            <input className="btn   mt-4" value="Add a Hotel" type="submit" />
+            <input className="btn mt-4" value="Add a Hotel" type="submit" />
           </div>
         </form>
       </div>

@@ -30,7 +30,7 @@ const ManageHotel = () => {
       .then((data) => {
         if (data.deletedCount > 0) {
           refetch();
-          toast.success(`User ${hotel.name} deleted successfully`);
+          toast.success(`${hotel.name} deleted successfully`);
         }
       });
   };
