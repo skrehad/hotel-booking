@@ -58,9 +58,9 @@ const AddHotel = () => {
   };
 
   return (
-    <div className=" bg-[url('https://i.ibb.co/C2dPzvb/photo-1571003123894-1f0594d2b5d9.jpg')] bg-cover rounded-lg h-full p-7 mx-auto">
+    <div className=" bg-[url('https://i.ibb.co/3hyp3Cg/pexels-photo-2964163.jpg')] bg-cover rounded-lg h-full p-7 mx-auto">
       <div className="">
-        <h1 className=" text-4xl mb-5 text-center text-black">Add A Blog</h1>
+        <h1 className=" text-4xl mb-5 text-center text-black">Add A Hotel</h1>
 
         <form
           className="bg-white mb-10 lg:w-96 md:w-96 mx-auto p-5 rounded-lg"
