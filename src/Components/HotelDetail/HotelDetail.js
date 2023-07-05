@@ -1,6 +1,6 @@
 import { Rating } from "@mui/material";
 import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { FaBath } from "react-icons/fa";
 import { BiSolidBed } from "react-icons/bi";
 import { LuBedDouble, LuBedSingle } from "react-icons/lu";
@@ -12,7 +12,6 @@ import { GiStopwatch } from "react-icons/gi";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
-import "./HotelDetail.css";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
@@ -21,7 +20,7 @@ const HotelDetail = () => {
   const { user } = useContext(AuthContext);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-
+  const navigate = useNavigate();
   const email = user?.email;
   const profileImage = user?.photoURL;
   const userName = user?.displayName;
@@ -39,7 +38,7 @@ const HotelDetail = () => {
   } = hotel;
 
   const handleBooking = () => {
-    if (!startDate && !endDate) {
+    if (!startDate || !endDate) {
       toast.error("please select start and end date for booking a hotel");
     } else {
       const booking = {
@@ -52,9 +51,24 @@ const HotelDetail = () => {
         image,
         startDate: formatDate(startDate),
         endDate: formatDate(startDate),
-        totalDay: formatDate(startDate),
+        totalDay: getDayCount(startDate, endDate),
       };
-      console.log(booking);
+      fetch("http://localhost:5000/booking", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(booking),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.acknowledged) {
+            toast.success(`${userName} your booking is successfully`);
+            navigate("/dashboard");
+          }
+        })
+        .catch((er) => console.error(er));
     }
   };
   const isFutureDate = (date) => {
