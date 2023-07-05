@@ -1,5 +1,5 @@
 import { Rating } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaBath } from "react-icons/fa";
 import { BiSolidBed } from "react-icons/bi";
@@ -14,13 +14,17 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import "./HotelDetail.css";
 import { toast } from "react-hot-toast";
-// import Modal from "../Modal/Modal";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const HotelDetail = () => {
   const hotel = useLoaderData();
+  const { user } = useContext(AuthContext);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const email = user?.email;
+  const profileImage = user?.photoURL;
+  const userName = user?.displayName;
 
   const {
     name,
@@ -38,9 +42,19 @@ const HotelDetail = () => {
     if (!startDate && !endDate) {
       toast.error("please select start and end date for booking a hotel");
     } else {
-      console.log("Start Date:", formatDate(startDate));
-      console.log("End Date:", formatDate(endDate));
-      console.log("Day Count:", getDayCount(startDate, endDate));
+      const booking = {
+        userName,
+        email,
+        profileImage,
+        name,
+        rating,
+        price,
+        image,
+        startDate: formatDate(startDate),
+        endDate: formatDate(startDate),
+        totalDay: formatDate(startDate),
+      };
+      console.log(booking);
     }
   };
   const isFutureDate = (date) => {
