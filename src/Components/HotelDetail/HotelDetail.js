@@ -110,8 +110,10 @@ const HotelDetail = () => {
         </div>
         <div></div>
       </div>
-      <div>
-        <button></button>
+      <div className="text-center my-5">
+        <button class="text-white text-xl bg-gray-800 hover:bg-gray-700  focus:ring-4 focus:outline-none  font-medium rounded-lg px-5 py-2.5 text-center  ">
+          Booking Hotel
+        </button>
       </div>
     </div>
   );
