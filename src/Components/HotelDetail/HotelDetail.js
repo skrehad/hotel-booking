@@ -12,14 +12,15 @@ import { GiStopwatch } from "react-icons/gi";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
-import Modal from "./Modal";
 import "./HotelDetail.css";
+import { toast } from "react-hot-toast";
+// import Modal from "../Modal/Modal";
 
 const HotelDetail = () => {
   const hotel = useLoaderData();
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   const {
     name,
@@ -34,11 +35,13 @@ const HotelDetail = () => {
   } = hotel;
 
   const handleBooking = () => {
-    // Perform any necessary actions with the selected dates (e.g., send to the backend)
-    console.log("Start Date:", formatDate(startDate));
-    console.log("End Date:", formatDate(endDate));
-    console.log("Day Count:", getDayCount(startDate, endDate));
-    setIsModalOpen(true);
+    if (!startDate && !endDate) {
+      toast.error("please select start and end date for booking a hotel");
+    } else {
+      console.log("Start Date:", formatDate(startDate));
+      console.log("End Date:", formatDate(endDate));
+      console.log("Day Count:", getDayCount(startDate, endDate));
+    }
   };
   const isFutureDate = (date) => {
     return moment(date).startOf("day").isSameOrAfter(moment().startOf("day"));
@@ -52,12 +55,9 @@ const HotelDetail = () => {
     const diffDays = endDate.diff(startDate, "days") + 1;
     return diffDays;
   };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  //   console.log(hotel);
   return (
     <div className="lg:mx-24 my-10 rounded-lg bg-white p-5 md:mx-12 mx-5">
+      {/* ... Hotel details ... */}
       <div className="grid gap-3 lg:grid-cols-2 md:grid-cols-2">
         <div>
           <img className="h-full rounded-lg" src={image} alt="" srcset="" />
@@ -142,11 +142,11 @@ const HotelDetail = () => {
         <div></div>
       </div>
 
-      <div className="date-picker-container">
-        <div className="date-picker-section">
-          <h2>Select Start Date:</h2>
+      <div className="date-picker-container md:lg:grid gap-5 md:lg:grid-cols-2 my-8">
+        <div className="date-picker-section md:lg:text-right">
+          <h2 className="text-gray-700 md:lg:mr-10 mb-2">Select Start Date:</h2>
           <DatePicker
-            className="date-picker"
+            className="date-picker rounded p-2"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
             selectsStart
@@ -154,13 +154,13 @@ const HotelDetail = () => {
             endDate={endDate}
             minDate={new Date()}
             filterDate={isFutureDate}
-            required
+            isRequired
           />
         </div>
         <div>
-          <h2>Select End Date:</h2>
+          <h2 className="text-gray-700 md:lg:ml-10 mb-2">Select End Date:</h2>
           <DatePicker
-            className="date-picker"
+            className="date-picker rounded p-2"
             selected={endDate}
             onChange={(date) => setEndDate(date)}
             selectsEnd
@@ -168,29 +168,19 @@ const HotelDetail = () => {
             endDate={endDate}
             minDate={startDate}
             filterDate={isFutureDate}
-            required
+            isRequired
           />
         </div>
       </div>
-
       <div className="text-center my-5">
         <button
           onClick={handleBooking}
-          disabled={!startDate || !endDate}
-          class="text-white text-xl bg-gray-800 hover:bg-gray-700  focus:ring-4 focus:outline-none  font-medium rounded-lg px-5 py-2.5 text-center  "
+          // disabled={!startDate || !endDate}
+          className="text-white text-xl hover: bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none font-medium rounded-lg px-5 py-2.5 text-center"
         >
-          Booking Hotel
+          Booking A Hotel
         </button>
       </div>
-      {isModalOpen && (
-        <Modal closeModal={closeModal}>
-          <h2>Booking Details</h2>
-          <p>Start Date: {formatDate(startDate)}</p>
-          <p>End Date: {formatDate(endDate)}</p>
-          <p>Day Count: {getDayCount(startDate, endDate)}</p>
-          <button onClick={closeModal}>Close</button>
-        </Modal>
-      )}
     </div>
   );
 };
