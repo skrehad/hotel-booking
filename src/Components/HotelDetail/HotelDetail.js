@@ -1,5 +1,5 @@
 import { Rating } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaBath } from "react-icons/fa";
 import { BiSolidBed } from "react-icons/bi";
@@ -9,9 +9,15 @@ import { TbAirConditioning } from "react-icons/tb";
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import { RiParkingBoxFill } from "react-icons/ri";
 import { GiStopwatch } from "react-icons/gi";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
 
 const HotelDetail = () => {
   const hotel = useLoaderData();
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+
   const {
     _id,
     name,
@@ -24,6 +30,16 @@ const HotelDetail = () => {
     image4,
     image5,
   } = hotel;
+
+  const handleBooking = () => {
+    // Perform any necessary actions with the selected dates (e.g., send to the backend)
+    console.log(startDate.format("YYYY-MM-DD"));
+    console.log(endDate.format("YYYY-MM-DD"));
+    console.log("Day Count:", moment(endDate).diff(startDate, "days") + 1);
+  };
+  const isFutureDate = (date) => {
+    return moment(date).startOf("day").isSameOrAfter(moment().startOf("day"));
+  };
   //   console.log(hotel);
   return (
     <div className="lg:mx-24 my-10 rounded-lg bg-white p-5 md:mx-12 mx-5">
@@ -110,6 +126,37 @@ const HotelDetail = () => {
         </div>
         <div></div>
       </div>
+
+      <div>
+        <div>
+          <h2>Select Start Date:</h2>
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+            minDate={new Date()}
+            filterDate={isFutureDate}
+          />
+        </div>
+        <div>
+          <h2>Select End Date:</h2>
+          <DatePicker
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+            minDate={startDate}
+            filterDate={isFutureDate}
+          />
+        </div>
+        <button onClick={handleBooking} disabled={!startDate || !endDate}>
+          Book
+        </button>
+      </div>
+
       <div className="text-center my-5">
         <button class="text-white text-xl bg-gray-800 hover:bg-gray-700  focus:ring-4 focus:outline-none  font-medium rounded-lg px-5 py-2.5 text-center  ">
           Booking Hotel
