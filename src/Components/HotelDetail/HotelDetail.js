@@ -12,14 +12,16 @@ import { GiStopwatch } from "react-icons/gi";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
+import Modal from "./Modal";
+import "./HotelDetail.css";
 
 const HotelDetail = () => {
   const hotel = useLoaderData();
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const {
-    _id,
     name,
     rating,
     price,
@@ -33,12 +35,25 @@ const HotelDetail = () => {
 
   const handleBooking = () => {
     // Perform any necessary actions with the selected dates (e.g., send to the backend)
-    console.log(startDate.format("YYYY-MM-DD"));
-    console.log(endDate.format("YYYY-MM-DD"));
-    console.log("Day Count:", moment(endDate).diff(startDate, "days") + 1);
+    console.log("Start Date:", formatDate(startDate));
+    console.log("End Date:", formatDate(endDate));
+    console.log("Day Count:", getDayCount(startDate, endDate));
+    setIsModalOpen(true);
   };
   const isFutureDate = (date) => {
     return moment(date).startOf("day").isSameOrAfter(moment().startOf("day"));
+  };
+  const formatDate = (date) => {
+    return date ? moment(date).format("YYYY-MM-DD") : null;
+  };
+  const getDayCount = (start, end) => {
+    const startDate = moment(start);
+    const endDate = moment(end);
+    const diffDays = endDate.diff(startDate, "days") + 1;
+    return diffDays;
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
   //   console.log(hotel);
   return (
@@ -127,10 +142,11 @@ const HotelDetail = () => {
         <div></div>
       </div>
 
-      <div>
-        <div>
+      <div className="date-picker-container">
+        <div className="date-picker-section">
           <h2>Select Start Date:</h2>
           <DatePicker
+            className="date-picker"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
             selectsStart
@@ -138,11 +154,13 @@ const HotelDetail = () => {
             endDate={endDate}
             minDate={new Date()}
             filterDate={isFutureDate}
+            required
           />
         </div>
         <div>
           <h2>Select End Date:</h2>
           <DatePicker
+            className="date-picker"
             selected={endDate}
             onChange={(date) => setEndDate(date)}
             selectsEnd
@@ -150,18 +168,29 @@ const HotelDetail = () => {
             endDate={endDate}
             minDate={startDate}
             filterDate={isFutureDate}
+            required
           />
         </div>
-        <button onClick={handleBooking} disabled={!startDate || !endDate}>
-          Book
-        </button>
       </div>
 
       <div className="text-center my-5">
-        <button class="text-white text-xl bg-gray-800 hover:bg-gray-700  focus:ring-4 focus:outline-none  font-medium rounded-lg px-5 py-2.5 text-center  ">
+        <button
+          onClick={handleBooking}
+          disabled={!startDate || !endDate}
+          class="text-white text-xl bg-gray-800 hover:bg-gray-700  focus:ring-4 focus:outline-none  font-medium rounded-lg px-5 py-2.5 text-center  "
+        >
           Booking Hotel
         </button>
       </div>
+      {isModalOpen && (
+        <Modal closeModal={closeModal}>
+          <h2>Booking Details</h2>
+          <p>Start Date: {formatDate(startDate)}</p>
+          <p>End Date: {formatDate(endDate)}</p>
+          <p>Day Count: {getDayCount(startDate, endDate)}</p>
+          <button onClick={closeModal}>Close</button>
+        </Modal>
+      )}
     </div>
   );
 };
