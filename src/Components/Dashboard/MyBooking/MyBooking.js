@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../../Shared/Loading/Loading";
 import { toast } from "react-hot-toast";
 import ConfirmationModal from "../../../Shared/ConfirmationModal/ConfirmationModal";
 import { Rating } from "@mui/material";
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const MyBooking = () => {
   const [deletingBooking, setDeletingBooking] = useState(null);
+  const { user } = useContext(AuthContext);
   const closeModal = () => {
     setDeletingBooking(null);
   };
@@ -15,8 +18,10 @@ const MyBooking = () => {
     isLoading,
     data: allBookings,
     refetch,
-  } = useQuery("allBookings", () =>
-    fetch("http://localhost:5000/booking").then((res) => res.json())
+  } = useQuery(["allBookings", user?.email], () =>
+    fetch(`http://localhost:5000/booking?email=${user?.email}`).then((res) =>
+      res.json()
+    )
   );
   if (isLoading) {
     return <Loading></Loading>;
@@ -48,48 +53,83 @@ const MyBooking = () => {
               <th>email</th>
               <th>Booking Date</th>
               <th>Hotel Name</th>
-              <th>Hotel Rating</th>
+              <th>Rating</th>
               <th>Image</th>
-              <th>Hotel Bill</th>
+              <th>Bill</th>
               <th>Payment</th>
               <th>Delete</th>
             </tr>
           </thead>
           <tbody>
-            {allBookings?.map((booking, i) => (
-              <tr className="text-center text-black" key={booking._id}>
-                <th>{i + 1}</th>
-                <td className="text-base font-bold">{booking.publisher}</td>
-                <td className="font-bold text-base px-0">{booking.name}</td>
-                <td>
-                  <Rating name="read-only" value={booking.rating} readOnly />
-                </td>
-                <td className="px-0">
-                  <img
-                    className="h-32 rounded-lg w-full"
-                    src={booking.image}
-                    alt=""
-                    srcset=""
-                  />
-                </td>
-                <td>
-                  <label
-                    onClick={() => setDeletingBooking(booking)}
-                    htmlFor="confirmation-modal"
-                    className="btn btn-sm text-white"
-                  >
-                    Delete
-                  </label>
-                </td>
-              </tr>
-            ))}
+            {allBookings.length === 0 ? (
+              <div className=" text-center my-8 mx-2">
+                <div className="font-bold text-gray-800  font-mono text-2xl mb-4 ">
+                  You have no Booking.Please Booking hotel...
+                </div>
+                <Link to="/hotels">
+                  <button className="btn my-5 text-white text-xl border-purple-900 bg-gray-800 font-mono text-center">
+                    See Hotels
+                  </button>
+                </Link>
+              </div>
+            ) : (
+              allBookings.map((booking, i) => (
+                <tr className="text-center text-black" key={booking._id}>
+                  <th>{i + 1}</th>
+                  <td className="pr-2 pl-0">{booking.userName}</td>
+                  <td className="pr-2 pl-0">{booking.email}</td>
+                  <td className="px-0">
+                    <p>{booking.startDate}</p> to
+                    <p>{booking.endDate}</p>
+                  </td>
+                  <td className="pr-0 pl-0">{booking.name}</td>
+                  <td className="pr-2 pl-0">
+                    <Rating name="read-only" value={booking.rating} readOnly />
+                  </td>
+                  <td className="px-0">
+                    <img
+                      className="h-32 rounded-lg w-full"
+                      src={booking.image}
+                      alt=""
+                      srcset=""
+                    />
+                  </td>
+                  <td className="font-bold px-2">
+                    ${booking.price * booking.totalDay}
+                  </td>
+                  <td className="pr-2 pl-0">
+                    <button className="btn test-white btn-sm">Pay</button>
+                  </td>
+                  <td className="pr-2 pl-0">
+                    <label
+                      onClick={() => setDeletingBooking(booking)}
+                      htmlFor="confirmation-modal"
+                      className="btn btn-sm text-white"
+                    >
+                      cancel
+                    </label>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
+      </div>
+      <div className="text-center pb-8">
+        {allBookings.length === 0 ? (
+          <></>
+        ) : (
+          <Link to="/hotels">
+            <button className="btn my-5 text-white text-xl border-purple-900 bg-gray-800 font-mono ">
+              See Hotels
+            </button>
+          </Link>
+        )}
       </div>
       {deletingBooking && (
         <ConfirmationModal
           title={`Are you sure you want to delete?`}
-          message={`If you delete ${deletingBooking.name}. It will remove from client those client booking this hotel.`}
+          message={`If you delete ${deletingBooking.name}. It will remove from your booking list.`}
           successAction={handleDeleteBooking}
           successButtonName="Delete"
           modalData={deletingBooking}
