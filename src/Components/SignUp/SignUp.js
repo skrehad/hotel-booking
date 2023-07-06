@@ -1,22 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { BsFacebook, BsGoogle } from "react-icons/bs";
+import useToken from "../../Hooks/useToken";
 
 const SignUp = () => {
   const { createUser, updateName, googleSingIn, facebookSingIn } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  // const [createdUserEmail, setCreatedUserEmail] = useState("");
-  // const [token] = useToken(createdUserEmail);
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const [token] = useToken(createdUserEmail);
 
   const from = location.state?.from?.pathname || "/";
 
-  // if (token) {
-  //   navigate("/");
-  // }
+  if (token) {
+    navigate("/");
+  }
 
   const signUp = (event) => {
     event.preventDefault();
@@ -44,7 +45,7 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            // setCreatedUserEmail(email);
+            setCreatedUserEmail(email);
           });
       })
       .catch((error) => {
@@ -81,7 +82,7 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            setCreatedUserEmail(data.email);
           });
       })
       .catch((error) => {
@@ -108,7 +109,7 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            setCreatedUserEmail(data.email);
           });
       })
       .catch((error) => {

@@ -1,15 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsGoogle, BsFacebook } from "react-icons/bs";
 import "./Login.css";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
+import useToken from "../../Hooks/useToken";
 
 const Login = () => {
   const { signInEmail, googleSingIn, facebookSingIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const [loginUserEmail, setLoginUserEmail] = useState("");
+  const [token] = useToken(loginUserEmail);
+
+  if (token) {
+    navigate(from, { replace: true });
+  }
 
   const signIn = (event) => {
     event.preventDefault();
@@ -23,6 +30,7 @@ const Login = () => {
         event.target.reset();
         navigate(from, { replace: true });
         console.log(user);
+        setLoginUserEmail(user.email);
       })
       .catch((error) => {
         const errorMsg = error.message;
@@ -50,7 +58,7 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            setLoginUserEmail(data.email);
           });
       })
       .catch((error) => {
@@ -77,7 +85,7 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            setLoginUserEmail(data.email);
           });
       })
       .catch((error) => {
