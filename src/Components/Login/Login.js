@@ -37,23 +37,8 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         toast.success("Login Successfully by Facebook");
-        navigate(from, { replace: true });
-        const name = user.displayName;
         const email = user.email;
-        const setUser = { name, email };
-        // console.log(setUser);
-        fetch("http://localhost:5000/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(setUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            setLoginUserEmail(data.email);
-            navigate(from, { replace: true });
-          });
+        setLoginUserEmail(email);
       })
       .catch((error) => {
         const errorMsg = error.message;
@@ -66,22 +51,9 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         toast.success("Login Successfully by Google");
-        navigate(from, { replace: true });
-        const name = user.displayName;
         const email = user.email;
-        const setUser = { name, email };
-        fetch("http://localhost:5000/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(setUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            setLoginUserEmail(data.email);
-            navigate(from, { replace: true });
-          });
+        console.log(email);
+        setLoginUserEmail(email);
       })
       .catch((error) => {
         const errorMsg = error.message;
@@ -149,16 +121,6 @@ const Login = () => {
                     Forget Password
                   </span>
                 </Link>
-
-                {/* admin cannot delete user and hotels */}
-                {/* admin cannot delete user and hotels */}
-                {/* admin cannot delete user and hotels */}
-                {/* admin cannot delete user and hotels */}
-                {/* admin cannot delete user and hotels */}
-                {/* admin cannot delete user and hotels */}
-                {/* admin cannot delete user and hotels */}
-                {/* admin cannot delete user and hotels */}
-                {/* admin cannot delete user and hotels */}
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>

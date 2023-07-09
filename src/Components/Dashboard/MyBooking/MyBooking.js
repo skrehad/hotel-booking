@@ -23,19 +23,23 @@ const MyBooking = () => {
   } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
-      const res = await fetch(url, {
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
-      const data = await res.json();
-      console.log(data);
-      return data;
+      try {
+        const res = await fetch(url, {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        });
+        const data = await res.json();
+        console.log(data);
+        return data;
+      } catch (error) {
+        console.log(error.message);
+      }
     },
   });
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return <Loading />;
   }
 
   const handleDeleteBooking = (booking) => {
@@ -50,9 +54,10 @@ const MyBooking = () => {
         }
       });
   };
+
   return (
     <div className="w-80 mx-auto md:w-full lg:w-full">
-      <h1 className=" text-4xl mb-5 text-center text-black">MY Bookings</h1>
+      <h1 className="text-4xl mb-5 text-center text-black">MY Bookings</h1>
 
       <div className="overflow-x-auto">
         <table className="table border-2 mb-5">
@@ -61,7 +66,7 @@ const MyBooking = () => {
             <tr>
               <th></th>
               <th>Name</th>
-              <th>email</th>
+              <th>Email</th>
               <th>Booking Date</th>
               <th>Hotel Name</th>
               <th>Rating</th>
@@ -73,16 +78,20 @@ const MyBooking = () => {
           </thead>
           <tbody>
             {allBookings?.length === 0 ? (
-              <div className=" text-center my-8 mx-2">
-                <div className="font-bold text-gray-800  font-mono text-2xl mb-4 ">
-                  You have no Booking.Please Booking hotel...
-                </div>
-                <Link to="/hotels">
-                  <button className="btn my-5 text-white text-xl border-purple-900 bg-gray-800 font-mono text-center">
-                    See Hotels
-                  </button>
-                </Link>
-              </div>
+              <tr className="text-center text-black">
+                <td colSpan="10">
+                  <div className="text-center my-8 mx-2">
+                    <div className="font-bold text-gray-800 font-mono text-2xl mb-4">
+                      You have no bookings. Please book a hotel...
+                    </div>
+                    <Link to="/hotels">
+                      <button className="btn my-5 text-white text-xl border-purple-900 bg-gray-800 font-mono text-center">
+                        See Hotels
+                      </button>
+                    </Link>
+                  </div>
+                </td>
+              </tr>
             ) : (
               allBookings?.map((booking, i) => (
                 <tr className="text-center text-black" key={booking._id}>
@@ -102,7 +111,7 @@ const MyBooking = () => {
                       className="h-32 rounded-lg w-full"
                       src={booking.image}
                       alt=""
-                      srcset=""
+                      srcSet=""
                     />
                   </td>
                   <td className="font-bold px-2">
@@ -117,7 +126,7 @@ const MyBooking = () => {
                       htmlFor="confirmation-modal"
                       className="btn btn-sm text-white"
                     >
-                      cancel
+                      Cancel
                     </label>
                   </td>
                 </tr>
@@ -139,13 +148,13 @@ const MyBooking = () => {
       </div>
       {deletingBooking && (
         <ConfirmationModal
-          title={`Are you sure you want to delete?`}
-          message={`If you delete ${deletingBooking.name}. It will remove from your booking list.`}
+          title="Are you sure you want to delete?"
+          message={`If you delete ${deletingBooking.name}, it will be removed from your booking list.`}
           successAction={handleDeleteBooking}
           successButtonName="Delete"
           modalData={deletingBooking}
           closeModal={closeModal}
-        ></ConfirmationModal>
+        />
       )}
     </div>
   );
