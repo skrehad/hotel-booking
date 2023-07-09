@@ -31,18 +31,30 @@ const Routes = () => {
         },
         {
           path: "/about",
-          element: <About></About>,
+          element: (
+            <PrivateRouter>
+              <About></About>
+            </PrivateRouter>
+          ),
         },
         {
           path: "/hotels",
-          element: <Hotels></Hotels>,
+          element: (
+            <PrivateRouter>
+              <Hotels></Hotels>
+            </PrivateRouter>
+          ),
         },
         {
           path: "/hotels/:id",
           loader: async ({ params }) => {
             return fetch(`http://localhost:5000/hotels/${params.id}`);
           },
-          element: <HotelDetail></HotelDetail>,
+          element: (
+            <PrivateRouter>
+              <HotelDetail></HotelDetail>
+            </PrivateRouter>
+          ),
         },
 
         {
@@ -87,7 +99,6 @@ const Routes = () => {
           path: "/dashboard/addHotel",
           element: (
             <AdminRoute>
-              {" "}
               <AddHotel></AddHotel>
             </AdminRoute>
           ),
