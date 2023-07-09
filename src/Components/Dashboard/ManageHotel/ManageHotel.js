@@ -15,8 +15,28 @@ const ManageHotel = () => {
     isLoading,
     data: allHotels,
     refetch,
-  } = useQuery("allHotels", () =>
-    fetch("http://localhost:5000/hotels").then((res) => res.json())
+  } = useQuery(
+    {
+      queryKey: ["allHotels"],
+      queryFn: async () => {
+        try {
+          const res = await fetch("http://localhost:5000/hotels", {
+            headers: {
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
+          });
+          const data = await res.json();
+          return data;
+        } catch (error) {}
+      },
+    }
+    // "allHotels",
+    // () => fetch("http://localhost:5000/hotels"),
+    // {
+    //   headers: {
+    //     authorization: `bearer ${localStorage.getItem("accessToken")}`,
+    //   },
+    // }.then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
@@ -25,6 +45,9 @@ const ManageHotel = () => {
   const handleDeleteHotel = (hotel) => {
     fetch(`http://localhost:5000/hotels/${hotel._id}`, {
       method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {

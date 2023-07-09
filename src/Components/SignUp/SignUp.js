@@ -45,6 +45,7 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then((data) => {
+            // getToken(email);
             setCreatedUserEmail(email);
           });
       })
@@ -68,7 +69,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         toast.success("Login Successfully by Facebook");
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
         const name = user.displayName;
         const email = user.email;
         const setUser = { name, email };
@@ -83,6 +84,7 @@ const SignUp = () => {
           .then((res) => res.json())
           .then((data) => {
             setCreatedUserEmail(data.email);
+            navigate(from, { replace: true });
           });
       })
       .catch((error) => {
@@ -96,7 +98,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         toast.success("Login Successfully by Google");
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
         const name = user.displayName;
         const email = user.email;
         const setUser = { name, email };
@@ -110,6 +112,7 @@ const SignUp = () => {
           .then((res) => res.json())
           .then((data) => {
             setCreatedUserEmail(data.email);
+            navigate(from, { replace: true });
           });
       })
       .catch((error) => {
@@ -117,6 +120,18 @@ const SignUp = () => {
         toast.error(errorMsg);
       });
   };
+
+  // const getToken = (email) => {
+  //   fetch(`http://localhost:5000/jwt?email=${email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       if (data.accessToken) {
+  //         localStorage.setItem("accessToken", data.accessToken);
+  //         navigate("/");
+  //       }
+  //     });
+  // };
 
   return (
     <div>

@@ -22,9 +22,12 @@ const AllUsers = () => {
     return <Loading></Loading>;
   }
 
-  const handleDeleteDoctor = (user) => {
+  const handleDeleteUser = (user) => {
     fetch(`http://localhost:5000/users/${user._id}`, {
       method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -134,7 +137,7 @@ const AllUsers = () => {
         <ConfirmationModal
           title={`Are you sure you want to delete?`}
           message={`If you delete ${deletingUser.name}. It cannot be undone.`}
-          successAction={handleDeleteDoctor}
+          successAction={handleDeleteUser}
           successButtonName="Delete"
           modalData={deletingUser}
           closeModal={closeModal}

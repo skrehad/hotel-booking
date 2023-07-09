@@ -14,15 +14,26 @@ const MyBooking = () => {
     setDeletingBooking(null);
   };
 
+  const url = `http://localhost:5000/booking?email=${user?.email}`;
+
   const {
+    data: allBookings = [],
     isLoading,
-    data: allBookings,
     refetch,
-  } = useQuery(["allBookings", user?.email], () =>
-    fetch(`http://localhost:5000/booking?email=${user?.email}`).then((res) =>
-      res.json()
-    )
-  );
+  } = useQuery({
+    queryKey: ["bookings", user?.email],
+    queryFn: async () => {
+      const res = await fetch(url, {
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+      return data;
+    },
+  });
+
   if (isLoading) {
     return <Loading></Loading>;
   }
@@ -61,7 +72,7 @@ const MyBooking = () => {
             </tr>
           </thead>
           <tbody>
-            {allBookings.length === 0 ? (
+            {allBookings?.length === 0 ? (
               <div className=" text-center my-8 mx-2">
                 <div className="font-bold text-gray-800  font-mono text-2xl mb-4 ">
                   You have no Booking.Please Booking hotel...
@@ -73,7 +84,7 @@ const MyBooking = () => {
                 </Link>
               </div>
             ) : (
-              allBookings.map((booking, i) => (
+              allBookings?.map((booking, i) => (
                 <tr className="text-center text-black" key={booking._id}>
                   <th>{i + 1}</th>
                   <td className="pr-2 pl-0">{booking.userName}</td>
@@ -116,7 +127,7 @@ const MyBooking = () => {
         </table>
       </div>
       <div className="text-center pb-8">
-        {allBookings.length === 0 ? (
+        {allBookings?.length === 0 ? (
           <></>
         ) : (
           <Link to="/hotels">

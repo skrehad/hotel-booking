@@ -5,8 +5,10 @@ import "./Login.css";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
 import useToken from "../../Hooks/useToken";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const { register, handleSubmit } = useForm();
   const { signInEmail, googleSingIn, facebookSingIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,25 +20,16 @@ const Login = () => {
     navigate(from, { replace: true });
   }
 
-  const signIn = (event) => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-
-    signInEmail(email, password)
+  const signIn = (data) => {
+    signInEmail(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        toast.success("Login Successfully by Email");
-        event.target.reset();
-        navigate(from, { replace: true });
         console.log(user);
-        setLoginUserEmail(user.email);
+        setLoginUserEmail(data.email);
       })
       .catch((error) => {
-        const errorMsg = error.message;
-        // console.error(errorMsg);
-        toast.error(errorMsg);
-      }); // console.log(email, password);
+        console.log(error.message);
+      });
   };
 
   const signInWithFacebook = () => {
@@ -59,6 +52,7 @@ const Login = () => {
           .then((res) => res.json())
           .then((data) => {
             setLoginUserEmail(data.email);
+            navigate(from, { replace: true });
           });
       })
       .catch((error) => {
@@ -86,6 +80,7 @@ const Login = () => {
           .then((res) => res.json())
           .then((data) => {
             setLoginUserEmail(data.email);
+            navigate(from, { replace: true });
           });
       })
       .catch((error) => {
@@ -113,7 +108,7 @@ const Login = () => {
             <h1 className="text-3xl mt-10 text-white  text-center">Log In</h1>
           </div>
 
-          <form onSubmit={signIn}>
+          <form onSubmit={handleSubmit(signIn)}>
             <div className="card-body cardBody gap-0 px-16">
               <div className="form-control">
                 <label className="label">
@@ -124,7 +119,9 @@ const Login = () => {
 
                 <input
                   type="email"
-                  name="email"
+                  {...register("email", {
+                    required: "Email Address is required",
+                  })}
                   placeholder="Enter your Email"
                   className="input input-bordered bg-none"
                 />
@@ -137,7 +134,13 @@ const Login = () => {
                 </label>
                 <input
                   type="password"
-                  name="password"
+                  {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be 6 characters or longer",
+                    },
+                  })}
                   placeholder="Enter your Password"
                   className="input input-bordered bg-none"
                 />
@@ -146,6 +149,16 @@ const Login = () => {
                     Forget Password
                   </span>
                 </Link>
+
+                {/* admin cannot delete user and hotels */}
+                {/* admin cannot delete user and hotels */}
+                {/* admin cannot delete user and hotels */}
+                {/* admin cannot delete user and hotels */}
+                {/* admin cannot delete user and hotels */}
+                {/* admin cannot delete user and hotels */}
+                {/* admin cannot delete user and hotels */}
+                {/* admin cannot delete user and hotels */}
+                {/* admin cannot delete user and hotels */}
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
