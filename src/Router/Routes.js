@@ -17,6 +17,7 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import PrivateRouter from "./PrivateRoute";
 import AddBlog from "../Components/Dashboard/AddBlog/AddBlog";
 import HotelDetail from "../Components/HotelDetail/HotelDetail";
+import AdminRoute from "./AdminRoute";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -76,19 +77,36 @@ const Routes = () => {
         },
         {
           path: "/dashboard/users",
-          element: <AllUsers></AllUsers>,
+          element: (
+            <AdminRoute>
+              <AllUsers></AllUsers>
+            </AdminRoute>
+          ),
         },
         {
           path: "/dashboard/addHotel",
-          element: <AddHotel></AddHotel>,
+          element: (
+            <AdminRoute>
+              {" "}
+              <AddHotel></AddHotel>
+            </AdminRoute>
+          ),
         },
         {
           path: "/dashboard/manageHotels",
-          element: <ManageHotel></ManageHotel>,
+          element: (
+            <AdminRoute>
+              <ManageHotel></ManageHotel>
+            </AdminRoute>
+          ),
         },
         {
           path: "/dashboard/addBlog",
-          element: <AddBlog></AddBlog>,
+          element: (
+            <AdminRoute>
+              <AddBlog></AddBlog>
+            </AdminRoute>
+          ),
         },
       ],
     },

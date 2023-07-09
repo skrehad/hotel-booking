@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { BsFacebook, BsGoogle } from "react-icons/bs";
-import useToken from "../../Hooks/useToken";
+import useToken from "../../hooks/useToken";
 
 const SignUp = () => {
   const { createUser, updateName, googleSingIn, facebookSingIn } =

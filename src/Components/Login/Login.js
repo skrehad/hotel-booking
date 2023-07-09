@@ -4,7 +4,7 @@ import { BsGoogle, BsFacebook } from "react-icons/bs";
 import "./Login.css";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
-import useToken from "../../Hooks/useToken";
+import useToken from "../../hooks/useToken";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
