@@ -28,7 +28,7 @@ const About = () => {
             <img
               src="https://i.ibb.co/bHQKjT3/about-pic1.jpg"
               alt=""
-              srcset=""
+              srcSet=""
             />
           </div>
         </div>
@@ -37,7 +37,7 @@ const About = () => {
             <img
               src="https://i.ibb.co/SP7rbND/crew-89808-unsplash-1.jpg"
               alt=""
-              srcset=""
+              srcSet=""
             />
           </div>
           <div className="lg:p-5 md:px-5 ">
@@ -55,7 +55,7 @@ const About = () => {
             <img
               src="https://i.ibb.co/SP7rbND/crew-89808-unsplash-1.jpg"
               alt=""
-              srcset=""
+              srcSet=""
             />
           </div>
         </div>

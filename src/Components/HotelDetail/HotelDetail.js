@@ -62,7 +62,7 @@ const HotelDetail = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           if (data.acknowledged) {
             toast.success(`${userName} your booking is successfully`);
             navigate("/dashboard");
@@ -88,16 +88,16 @@ const HotelDetail = () => {
       {/* ... Hotel details ... */}
       <div className="grid gap-3 lg:grid-cols-2 md:grid-cols-2">
         <div>
-          <img className="h-full rounded-lg" src={image} alt="" srcset="" />
+          <img className="h-full rounded-lg" src={image} alt="" srcSet="" />
         </div>
         <div>
           <div className="grid mb-3 grid-cols-2 gap-3">
-            <img className="rounded-lg" src={image2} alt="" srcset="" />
-            <img className="rounded-lg" src={image3} alt="" srcset="" />
+            <img className="rounded-lg" src={image2} alt="" srcSet="" />
+            <img className="rounded-lg" src={image3} alt="" srcSet="" />
           </div>
           <div className="grid grid-cols-2 gap-3">
-            <img className="rounded-lg" src={image4} alt="" srcset="" />
-            <img className="rounded-lg" src={image5} alt="" srcset="" />
+            <img className="rounded-lg" src={image4} alt="" srcSet="" />
+            <img className="rounded-lg" src={image5} alt="" srcSet="" />
           </div>
         </div>
       </div>
@@ -107,7 +107,7 @@ const HotelDetail = () => {
           <div className="lg:md:text-right mt-2 lg:md:mt-0 lg:md:mr-5">
             <Rating name="read-only" value={rating} readOnly />
             <p className="mr-2">
-              <span class="text-2xl font-bold text-gray-900 ">
+              <span className="text-2xl font-bold text-gray-900 ">
                 ${price}
                 <span className="text-sm">/night</span>
               </span>

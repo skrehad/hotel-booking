@@ -89,7 +89,7 @@ const ManageHotel = () => {
                     className="h-32 rounded-lg w-full"
                     src={hotel.image}
                     alt=""
-                    srcset=""
+                    srcSet=""
                   />
                 </td>
                 <td>

@@ -9,7 +9,7 @@ const Footer = () => {
           className="w-[80px] m-auto"
           src="https://i.ibb.co/1MZDM9G/favicon.png"
           alt=""
-          srcset=""
+          srcSet=""
         />
         <p className="m-auto">Hotel Booking.com</p>
         <p className="m-auto">Providing reliable hotels since 2002</p>

@@ -48,7 +48,7 @@ const AddBlog = () => {
           })
             .then((res) => res.json())
             .then((result) => {
-              console.log(result);
+              // console.log(result);
               toast.success("your blog is added successfully");
               navigate("/blog");
             });

@@ -41,40 +41,40 @@ const Blog = () => {
               .map((blog) => (
                 <div
                   key={blog._id}
-                  class="max-w-sm mb-5 w-full md:mx-auto lg:max-w-full lg:flex"
+                  className="max-w-sm mb-5 w-full md:mx-auto lg:max-w-full lg:flex"
                 >
                   <div
                     className="lg:h-auto lg:w-[280px] md:h-[250px] flex-none bg-cover text-center overflow-hidden"
                     title=""
                   >
-                    <img className="h-full" src={blog.image} alt="" srcset="" />
+                    <img className="h-full" src={blog.image} alt="" srcSet="" />
                   </div>
-                  <div class="  bg-white     rounded-b p-4 flex flex-col justify-between leading-normal">
-                    <div class="mb-8">
-                      <div class="text-gray-900 font-bold text-xl mb-2">
+                  <div className="  bg-white     rounded-b p-4 flex flex-col justify-between leading-normal">
+                    <div className="mb-8">
+                      <div className="text-gray-900 font-bold text-xl mb-2">
                         {blog.title}
                       </div>
-                      <p class="text-black text-base">{blog.description}</p>
+                      <p className="text-black text-base">{blog.description}</p>
                     </div>
-                    <div class="flex items-center mx-auto lg:mx-0 md:mx-0">
+                    <div className="flex items-center mx-auto lg:mx-0 md:mx-0">
                       {blog.publisherPhoto ? (
                         <img
-                          class="w-10 h-10 rounded-full mr-4"
+                          className="w-10 h-10 rounded-full mr-4"
                           src={blog.publisherPhoto}
                           alt=""
                         />
                       ) : (
                         <img
                           alt=""
-                          class="w-10 h-10 rounded-full mr-4"
+                          className="w-10 h-10 rounded-full mr-4"
                           src="https://i.ibb.co/S5PRg6x/download.jpg"
                         />
                       )}
-                      <div class="text-sm">
-                        <p class="text-black font-bold leading-none">
+                      <div className="text-sm">
+                        <p className="text-black font-bold leading-none">
                           {blog.publisherName}
                         </p>
-                        <p class="text-gray-600">{blog.date}</p>
+                        <p className="text-gray-600">{blog.date}</p>
                       </div>
                     </div>
                   </div>
@@ -82,26 +82,26 @@ const Blog = () => {
               ))}
           </div>
           <div className="w-none ">
-            <div class="flex justify-center sticky top-20 flex-wrap ">
-              <div class="my-5 lg:mt-0 mx-3 py-5 px-5 bg-gray-800 rounded inline-block">
-                <p class="text-white font-bold text-sm text-center mb-3">
+            <div className="flex justify-center sticky top-20 flex-wrap ">
+              <div className="my-5 lg:mt-0 mx-3 py-5 px-5 bg-gray-800 rounded inline-block">
+                <p className="text-white font-bold text-sm text-center mb-3">
                   Join our blogs
                 </p>
                 <form onSubmit={subscribeForm}>
-                  <div class="mb-3  text-center">
+                  <div className="mb-3  text-center">
                     <input
-                      class=" shadow-inner w-full p-2 text-white  text-sm bg-gray-900 border-b border-gray-700"
+                      className=" shadow-inner w-full p-2 text-white  text-sm bg-gray-900 border-b border-gray-700"
                       placeholder="Enter your Name"
                       name="name"
                       type="text"
                     />
                     <input
-                      class=" shadow-inner w-full p-2 text-white mt-3 text-sm bg-gray-900 border-b border-gray-700"
+                      className=" shadow-inner w-full p-2 text-white mt-3 text-sm bg-gray-900 border-b border-gray-700"
                       placeholder="Enter your email"
                       name="email"
                       type="email"
                     />
-                    <button class="shadow-lg bg-blue-600 mt-3 text-white font-bold text-sm rounded px-3 py-2">
+                    <button className="shadow-lg bg-blue-600 mt-3 text-white font-bold text-sm rounded px-3 py-2">
                       Subscribe
                     </button>
                   </div>

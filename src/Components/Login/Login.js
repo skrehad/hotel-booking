@@ -28,7 +28,7 @@ const Login = () => {
         setLoginUserEmail(data.email);
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error(error.message);
       });
   };
 

@@ -30,10 +30,10 @@ const MyBooking = () => {
           },
         });
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
         return data;
       } catch (error) {
-        console.log(error.message);
+        toast.error(error.message);
       }
     },
   });

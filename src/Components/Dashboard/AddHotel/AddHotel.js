@@ -49,7 +49,7 @@ const AddHotel = () => {
           })
             .then((res) => res.json())
             .then((result) => {
-              console.log(result);
+              // console.log(result);
               toast.success("your hotel is added successfully");
               navigate("/hotels");
             });
