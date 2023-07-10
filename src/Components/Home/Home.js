@@ -8,10 +8,13 @@ const Home = () => {
     <div>
       <div>home</div>
       <div className="lg:mx-20 md:mx-12 mx-10">
+        {/* all all hotels */}
         <CardCarousel></CardCarousel>
       </div>
-      <HomeFooter></HomeFooter>
+      {/* blog ta kono effect porve na  */}
+      <div>Blog</div>
       <GalleryPictureSlider></GalleryPictureSlider>
+      <HomeFooter></HomeFooter>
     </div>
   );
 };
