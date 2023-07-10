@@ -172,7 +172,7 @@ const HotelDetail = () => {
 
       <div className="date-picker-container md:lg:grid gap-5 md:lg:grid-cols-2 my-8">
         <div className="date-picker-section md:lg:text-right">
-          <h2 className="text-gray-700 md:lg:mr-10 mb-2">Select Start Date:</h2>
+          <h2 className="text-gray-700 md:lg:mr-10 mb-2">Check-In Date:</h2>
           <DatePicker
             className="date-picker rounded p-2"
             selected={startDate}
@@ -186,7 +186,7 @@ const HotelDetail = () => {
           />
         </div>
         <div>
-          <h2 className="text-gray-700 md:lg:ml-10 mb-2">Select End Date:</h2>
+          <h2 className="text-gray-700 md:lg:ml-10 mb-2">Check-Out Date:</h2>
           <DatePicker
             className="date-picker rounded p-2"
             selected={endDate}
