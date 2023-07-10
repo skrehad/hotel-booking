@@ -37,7 +37,8 @@ const HomeFooter = () => {
                   placeholder="Enter your email"
                   type="email"
                   id="email"
-                  required=""
+                  name="email"
+                  required
                 />
               </div>
               <div>
