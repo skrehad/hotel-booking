@@ -37,8 +37,20 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         toast.success("Login Successfully by Facebook");
+        const name = user.displayName;
         const email = user.email;
-        setLoginUserEmail(email);
+        const setUser = { name, email };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(setUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setLoginUserEmail(email);
+          });
       })
       .catch((error) => {
         const errorMsg = error.message;
@@ -51,9 +63,20 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         toast.success("Login Successfully by Google");
+        const name = user.displayName;
         const email = user.email;
-        console.log(email);
-        setLoginUserEmail(email);
+        const setUser = { name, email };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(setUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setLoginUserEmail(email);
+          });
       })
       .catch((error) => {
         const errorMsg = error.message;
