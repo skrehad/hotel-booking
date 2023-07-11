@@ -134,7 +134,7 @@ const CardCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % divs.length);
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [divs.length]);

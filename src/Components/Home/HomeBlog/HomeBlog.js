@@ -18,10 +18,15 @@ const HomeBlog = () => {
         Recent Blog
       </h1>
       <div className="grid md:grid-cols-2 gap-3 lg:grid-cols-4">
-        {blogs?.slice(0, 4).map((blog) => (
-          <div key={blog._id} className="max-w-sm mb-5">
+        {blogs?.slice(1, 5).map((blog) => (
+          <div key={blog._id} className="max-w-sm mb-5 rounded-md">
             <div className=" text-center overflow-hidden" title="">
-              <img className="h-full" src={blog.image} alt="" srcSet="" />
+              <img
+                className="h-[300px] rounded-t-md"
+                src={blog.image}
+                alt=""
+                srcSet=""
+              />
             </div>
             <div className="  bg-white rounded-b p-4 flex flex-col justify-between leading-normal">
               <div className="mb-8">
