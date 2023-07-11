@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from "react";
-import "./GalleryPictureSlider.css";
+import { useQuery } from "react-query";
+import Loading from "../../../Shared/Loading/Loading";
 
 const GalleryPictureSlider = () => {
-  const images = [
-    "https://i.ibb.co/y5V1Bf2/gallery-4-jpg.webp",
-    "https://i.ibb.co/W2GThcp/gallery-3-jpg.webp",
-    "https://i.ibb.co/pKFCGh7/gallery-2-jpg.webp",
-    "https://i.ibb.co/kBjLdx8/gallery-1-jpg.webp",
-    "https://i.ibb.co/y5V1Bf2/gallery-4-jpg.webp",
-    "https://i.ibb.co/pKFCGh7/gallery-2-jpg.webp",
-    "https://i.ibb.co/y6GQ4SF/1.jpg",
-    "https://i.ibb.co/y6GQ4SF/1.jpg",
-  ];
+  const { isLoading, data: galleryPicture } = useQuery("galleryPicture", () =>
+    fetch("http://localhost:5000/gallery").then((res) => res.json())
+  );
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showingPictures, setShowingPictures] = useState(images.slice(0, 4));
+  const [showingPictures, setShowingPictures] = useState([]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      const nextIndex = (currentIndex + 1) % images.length;
-      const nextPictures = images.slice(nextIndex, nextIndex + 4);
-      setCurrentIndex(nextIndex);
-      setShowingPictures(nextPictures);
-    }, 3000);
+    if (galleryPicture) {
+      const timer = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % galleryPicture.length;
+        const nextPictures = galleryPicture.slice(nextIndex, nextIndex + 4);
+        setCurrentIndex(nextIndex);
+        setShowingPictures(nextPictures);
+      }, 3000);
 
-    return () => clearInterval(timer);
-  }, [currentIndex, images]);
+      return () => clearInterval(timer);
+    }
+  }, [currentIndex, galleryPicture]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div>
@@ -34,7 +34,12 @@ const GalleryPictureSlider = () => {
       </h1>
       <div className="mx-10 grid my-10 gap-3 md:grid-cols-2 lg:grid-cols-4">
         {showingPictures.map((picture, index) => (
-          <img key={index} alt="" className="h-[280px] w-full" src={picture} />
+          <img
+            key={index}
+            alt=""
+            className="h-[280px] w-full"
+            src={picture.image}
+          />
         ))}
       </div>
     </div>
