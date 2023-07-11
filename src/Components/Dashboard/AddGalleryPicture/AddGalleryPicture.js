@@ -45,35 +45,39 @@ const AddGalleryPicture = () => {
       });
   };
   return (
-    <div className="">
-      <h1 className=" text-4xl mb-5 text-center text-black">Add A Blog</h1>
+    <div className=" bg-[url('https://i.ibb.co/cyXKh6v/beautiful-luxury-outdoor-swimming-pool-hotel-resort-74190-7433.jpg')] bg-cover rounded-lg h-full p-7 mx-auto">
+      <div className="">
+        <h1 className=" text-4xl mb-5 text-center text-black">
+          Add Gallery Picture
+        </h1>
 
-      <form
-        className="bg-white mb-10 lg:w-96 md:w-96 mx-auto p-5 rounded-lg"
-        onSubmit={handleSubmit(handleAddGalleryPicture)}
-      >
-        <div className="form-control w-full max-w-xs">
-          <label className="label">
-            <span className="label-text text-black">Blog Photo</span>
-          </label>
-          <input
-            type="file"
-            required
-            {...register("image", {
-              required: "Photo is Required",
-            })}
-            className="input input-bordered py-2 w-full max-w-xs"
-          />
-          {errors.img && <p className="text-red-500">{errors.img.message}</p>}
-        </div>
-        <div className="text-center">
-          <input
-            className="btn   mt-4"
-            value="Add Gallery Picture"
-            type="submit"
-          />
-        </div>
-      </form>
+        <form
+          className="bg-white mb-10 lg:w-96 md:w-96 mx-auto p-5 rounded-lg"
+          onSubmit={handleSubmit(handleAddGalleryPicture)}
+        >
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text text-black">Gallery Photo</span>
+            </label>
+            <input
+              type="file"
+              required
+              {...register("image", {
+                required: "Photo is Required",
+              })}
+              className="input input-bordered py-2 w-full max-w-xs"
+            />
+            {errors.img && <p className="text-red-500">{errors.img.message}</p>}
+          </div>
+          <div className="text-center">
+            <input
+              className="btn   mt-4"
+              value="Add Gallery Picture"
+              type="submit"
+            />
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
