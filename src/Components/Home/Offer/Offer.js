@@ -3,11 +3,11 @@ import "./Offer.css";
 
 const Offer = () => {
   return (
-    <div>
+    <div className="my-10">
       <h1 className="text-center text-[40px] font-normal text-black font-serif my-10">
         We Offer to Our Guest
       </h1>
-      <div className="grid md:lg:grid-cols-3 gap-10">
+      <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-10">
         <div className="image-container">
           <img
             className="image"
