@@ -2,6 +2,8 @@ import React from "react";
 import HomeFooter from "./HomeFooter/HomeFooter";
 import GalleryPictureSlider from "./GalleryPictureSlider/GalleryPictureSlider";
 import CardCarousel from "./CardCarousel/CardCarousel";
+import HomeBlog from "./HomeBlog/HomeBlog";
+import Offer from "./Offer/Offer";
 
 const Home = () => {
   return (
@@ -10,9 +12,9 @@ const Home = () => {
       <div className="lg:mx-20 md:mx-12 mx-10">
         {/* all all hotels */}
         <CardCarousel></CardCarousel>
+        <Offer></Offer>
+        <HomeBlog></HomeBlog>
       </div>
-      {/* blog ta kono effect porve na  */}
-      <div>Blog</div>
       <GalleryPictureSlider></GalleryPictureSlider>
       <HomeFooter></HomeFooter>
     </div>

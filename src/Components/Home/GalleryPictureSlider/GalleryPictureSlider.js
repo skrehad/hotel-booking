@@ -32,7 +32,7 @@ const GalleryPictureSlider = () => {
       <h1 className="text-center text-[40px] font-normal text-black font-serif my-10">
         Gallery
       </h1>
-      <div className="mx-10 grid my-10 gap-3 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-10 md:lg:mx-0 grid my-10 gap-5 md:grid-cols-2 lg:grid-cols-4">
         {showingPictures.map((picture, index) => (
           <img
             key={index}
