@@ -29,15 +29,12 @@ const GalleryPictureSlider = () => {
 
   return (
     <div>
+      <h1 className="text-center text-[40px] font-normal text-black font-serif my-10">
+        Gallery
+      </h1>
       <div className="mx-10 grid my-10 gap-3 md:grid-cols-2 lg:grid-cols-4">
         {showingPictures.map((picture, index) => (
-          <img
-            key={index}
-            alt=""
-            className="h-[300px] w-full"
-            src={picture}
-            // alt={`Picture ${index + 1}`}
-          />
+          <img key={index} alt="" className="h-[280px] w-full" src={picture} />
         ))}
       </div>
     </div>

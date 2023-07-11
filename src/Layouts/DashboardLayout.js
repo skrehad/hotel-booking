@@ -59,6 +59,14 @@ const DashboardLayout = () => {
                     Add Blog
                   </NavLink>
                 </li>
+                <li className="my-1">
+                  <NavLink
+                    to="/dashboard/addGalleryPicture"
+                    className="hover:text-[#ff0336] "
+                  >
+                    Add Gallery Picture
+                  </NavLink>
+                </li>
               </>
             )}
           </ul>

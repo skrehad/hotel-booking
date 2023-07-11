@@ -18,6 +18,7 @@ import PrivateRouter from "./PrivateRoute";
 import AddBlog from "../Components/Dashboard/AddBlog/AddBlog";
 import HotelDetail from "../Components/HotelDetail/HotelDetail";
 import AdminRoute from "./AdminRoute";
+import AddGalleryPicture from "../Components/Dashboard/AddGalleryPicture/AddGalleryPicture";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -116,6 +117,14 @@ const Routes = () => {
           element: (
             <AdminRoute>
               <AddBlog></AddBlog>
+            </AdminRoute>
+          ),
+        },
+        {
+          path: "/dashboard/addGalleryPicture",
+          element: (
+            <AdminRoute>
+              <AddGalleryPicture></AddGalleryPicture>
             </AdminRoute>
           ),
         },
