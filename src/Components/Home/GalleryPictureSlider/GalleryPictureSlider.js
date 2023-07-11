@@ -42,6 +42,11 @@ const GalleryPictureSlider = () => {
           />
         ))}
       </div>
+      <div>
+        <h1 className="text-center text-xl font-normal text-black font-serif my-5">
+          Only Admin Can Add Gallery Photo
+        </h1>
+      </div>
     </div>
   );
 };
