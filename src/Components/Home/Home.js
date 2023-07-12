@@ -7,6 +7,7 @@ import Offer from "./Offer/Offer";
 import HomeContact from "./HomeContact/HomeContact";
 import ServicesIcon from "./ServicesIcon/ServicesIcon";
 import About from "./About/About";
+import Services from "./Services/Services";
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
       <div>home</div>
       <div className="lg:mx-20 md:mx-12 mx-10">
         <About></About>
-        <p>Our Services</p>
+        <Services></Services>
 
         {/* all hotels */}
         <CardCarousel></CardCarousel>
