@@ -8,6 +8,7 @@ import HomeContact from "./HomeContact/HomeContact";
 import ServicesIcon from "./ServicesIcon/ServicesIcon";
 import About from "./About/About";
 import Services from "./Services/Services";
+import HotelOffers from "./HotelOffers/HotelOffers";
 
 const Home = () => {
   return (
@@ -15,11 +16,13 @@ const Home = () => {
       <div>home</div>
       <div className="lg:mx-20 md:mx-12 mx-10">
         <About></About>
+        <ServicesIcon></ServicesIcon>
         <Services></Services>
         {/* all hotels */}
         <CardCarousel></CardCarousel>
+        <HotelOffers></HotelOffers>
+        <p>What People Say</p>
         <Offer></Offer>
-        <ServicesIcon></ServicesIcon>
         <HomeBlog></HomeBlog>
         <HomeContact></HomeContact>
       </div>
