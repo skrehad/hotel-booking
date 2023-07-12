@@ -87,17 +87,50 @@ const HotelDetail = () => {
     <div className="lg:mx-24 my-10 rounded-lg bg-white p-5 md:mx-12 mx-5">
       {/* ... Hotel details ... */}
       <div className="grid gap-3 lg:grid-cols-2 md:grid-cols-2">
-        <div>
-          <img className="h-full rounded-lg" src={image} alt="" srcSet="" />
+        <div className="overflow-hidden rounded-lg">
+          <img
+            className="h-full transition ease-in-out duration-300  hover:scale-110"
+            src={image}
+            alt=""
+            srcSet=""
+          />
         </div>
         <div>
           <div className="grid mb-3 grid-cols-2 gap-3">
-            <img className="rounded-lg" src={image2} alt="" srcSet="" />
-            <img className="rounded-lg" src={image3} alt="" srcSet="" />
+            <div className="overflow-hidden rounded-lg">
+              <img
+                className="transition ease-in-out duration-300  hover:scale-110"
+                src={image2}
+                alt=""
+                srcSet=""
+              />
+            </div>
+            <div className="overflow-hidden rounded-lg">
+              <img
+                className="transition ease-in-out duration-300  hover:scale-110"
+                src={image3}
+                alt=""
+                srcSet=""
+              />
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            <img className="rounded-lg" src={image4} alt="" srcSet="" />
-            <img className="rounded-lg" src={image5} alt="" srcSet="" />
+            <div className="overflow-hidden rounded-lg">
+              <img
+                className="transition ease-in-out duration-300  hover:scale-110"
+                src={image4}
+                alt=""
+                srcSet=""
+              />
+            </div>
+            <div className="overflow-hidden rounded-lg">
+              <img
+                className="transition ease-in-out duration-300  hover:scale-110"
+                src={image5}
+                alt=""
+                srcSet=""
+              />
+            </div>
           </div>
         </div>
       </div>

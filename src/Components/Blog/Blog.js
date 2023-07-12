@@ -47,9 +47,14 @@ const Blog = () => {
                     className="lg:h-auto lg:w-[280px] md:h-[250px] flex-none bg-cover text-center overflow-hidden"
                     title=""
                   >
-                    <img className="h-full" src={blog.image} alt="" srcSet="" />
+                    <img
+                      className="h-full rounded-l-lg"
+                      src={blog.image}
+                      alt=""
+                      srcSet=""
+                    />
                   </div>
-                  <div className="  bg-white     rounded-b p-4 flex flex-col justify-between leading-normal">
+                  <div className="  bg-white   rounded-r-lg  rounded-b p-4 flex flex-col justify-between leading-normal">
                     <div className="mb-8">
                       <div className="text-gray-900 font-bold text-xl mb-2">
                         {blog.title}

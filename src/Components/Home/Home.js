@@ -16,7 +16,6 @@ const Home = () => {
       <div className="lg:mx-20 md:mx-12 mx-10">
         <About></About>
         <Services></Services>
-
         {/* all hotels */}
         <CardCarousel></CardCarousel>
         <Offer></Offer>
