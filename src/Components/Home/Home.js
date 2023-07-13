@@ -21,8 +21,8 @@ const Home = () => {
         {/* all hotels */}
         <CardCarousel></CardCarousel>
         <HotelOffers></HotelOffers>
-        <p>What People Say</p>
         <Offer></Offer>
+        <p>What People Say</p>
         <HomeBlog></HomeBlog>
         <HomeContact></HomeContact>
       </div>
