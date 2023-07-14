@@ -23,7 +23,7 @@ const HomeBlog = () => {
           <div key={blog._id} className="max-w-sm mb-5 rounded-md">
             <div className=" text-center overflow-hidden" title="">
               <img
-                className="h-[300px] rounded-t-md"
+                className="h-[300px] w-full rounded-t-md"
                 src={blog.image}
                 alt=""
                 srcSet=""

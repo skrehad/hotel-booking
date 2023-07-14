@@ -46,13 +46,13 @@ const Testimonial = () => {
         <div className="lg:w-2/3 md:w-2/3 lg:px-8 md:px-8 lg:py-5 md:py-5 p-4">
           {currentItem && (
             <div>
-              <h1 className="text-2xl mb-2 md:mb-0 md:text-[16px] font-serif text-[#796e6e]">
+              <h1 className="text-xl lg:text-[24px] lg:mb-5 mb-2 md:mb-0 md:text-[16px] font-serif text-[#796e6e]">
                 Testimonials
               </h1>
-              <h1 className="lg:text-[40px] text-[30px] md:text-xl font-serif text-[#454242]">
+              <h1 className="lg:text-[42px] text-[30px] md:text-xl font-serif text-[#454242]">
                 What Customers Say?
               </h1>
-              <p className="mt-8 md:text-[12px] md:mt-3 text-xl">
+              <p className="mt-8 lg:mt-10 md:text-[12px] lg:text-[18px] md:mt-3 text-xl">
                 {currentItem.description}
               </p>
               <div className="flex mt-10 lg:mt-20 md:mt-5 items-center">

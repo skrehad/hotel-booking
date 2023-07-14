@@ -33,7 +33,7 @@ const CardCarousel = () => {
         </h1>
       </div>
       <div className="carousel-container">
-        <div className=" grid md:grid-cols-3 lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {hotels && hotels.length > 3 ? (
             <>
               {displayedHotels
@@ -42,11 +42,11 @@ const CardCarousel = () => {
                 .map((hotel) => (
                   <div key={hotel.id} className="text-center">
                     <img className="h-[250px]" src={hotel.image} alt="Shoes" />
-                    <div className="card-body h-[160px]">
+                    <div className="mt-5">
                       <h2 className="card-title text-[#454242] font-serif">
                         {hotel.name}
                       </h2>
-                      <div className="flex">
+                      <div className="flex mt-3">
                         <Rating
                           name="read-only "
                           className="w-1/2 my-auto"
@@ -74,9 +74,9 @@ const CardCarousel = () => {
                         src={hotel.image}
                         alt="Shoes"
                       />
-                      <div className="card-body h-[160px]">
+                      <div className="mt-5">
                         <h2 className="card-title">{hotel.name}</h2>
-                        <div className="flex">
+                        <div className="flex mt-3">
                           <Rating
                             name="read-only "
                             className="w-1/2"
