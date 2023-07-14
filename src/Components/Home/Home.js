@@ -16,8 +16,8 @@ const Home = () => {
       <div>home</div>
       <div className="lg:mx-20 md:mx-12 mx-10">
         <About></About>
-        <ServicesIcon></ServicesIcon>
         <Services></Services>
+        <ServicesIcon></ServicesIcon>
         {/* all hotels */}
         <CardCarousel></CardCarousel>
         <HotelOffers></HotelOffers>

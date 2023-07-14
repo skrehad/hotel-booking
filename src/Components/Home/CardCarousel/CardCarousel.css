@@ -1,6 +1,3 @@
-/* .carousel-container {
-  overflow: hidden;
-} */
 
 .carousel {
   display: flex;
@@ -15,11 +12,6 @@
     transform: translateX(-100%);
   }
 }
-
-/* .card {
-  flex: 0 0 100%;
-  max-width: 100%;
-} */
 
 .card-body {
   padding: 1rem;
