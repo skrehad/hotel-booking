@@ -34,13 +34,13 @@ const Testimonial = () => {
 
   return (
     <div>
-      <div className="lg:flex md:flex mb-10 bg-white rounded-md mt-20">
+      <div className="lg:flex md:flex mb-10 bg-white rounded-md mt-20 shadow-xl">
         <div className="lg:w-1/3 md:w-1/3 flex-none">
           <img
-            className="lg:rounded-l-md md:rounded-l-md rounded-t-md"
+            className="lg:rounded-l-md md:rounded-l-md rounded-t-md lg:rounded-tr-none md:rounded-tr-none"
             src="https://i.ibb.co/VM0qhLC/testimony-img-jpg.webp"
             alt=""
-            srcset=""
+            srcSet=""
           />
         </div>
         <div className="lg:w-2/3 md:w-2/3 lg:px-8 md:px-8 lg:py-5 md:py-5 p-4">
@@ -52,7 +52,7 @@ const Testimonial = () => {
               <h1 className="lg:text-[42px] text-[30px] md:text-xl font-serif text-[#454242]">
                 What Customers Say?
               </h1>
-              <p className="mt-8 lg:mt-10 md:text-[12px] lg:text-[18px] md:mt-3 text-xl">
+              <p className="mt-8 lg:mt-10 font-serif md:text-[12px] lg:text-[18px] md:mt-3 text-xl">
                 {currentItem.description}
               </p>
               <div className="flex mt-10 lg:mt-20 md:mt-5 items-center">
@@ -70,7 +70,7 @@ const Testimonial = () => {
                   />
                 )}
                 <div className="text-sm">
-                  <p className="text-gray-900 mb-2 text-center leading-none">
+                  <p className="text-black text-[16px] mb-2 text-center leading-none">
                     {currentItem.name}
                   </p>
                   <Rating

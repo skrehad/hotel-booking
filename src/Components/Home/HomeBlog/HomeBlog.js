@@ -20,7 +20,7 @@ const HomeBlog = () => {
       </h1>
       <div className="grid md:grid-cols-2 gap-3 lg:grid-cols-4">
         {blogs?.slice(1, 5).map((blog) => (
-          <div key={blog._id} className="max-w-sm mb-5 rounded-md">
+          <div key={blog._id} className="max-w-sm mb-5 rounded-md shadow-xl">
             <div className=" text-center overflow-hidden" title="">
               <img
                 className="h-[300px] w-full rounded-t-md"

@@ -9,6 +9,7 @@ import About from "./About/About";
 import Services from "./Services/Services";
 import HotelOffers from "./HotelOffers/HotelOffers";
 import Testimonial from "./Testimonial/Testimonial";
+import WebsiteAnalysis from "./WebsiteAnalysis/WebsiteAnalysis";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
         <HotelOffers></HotelOffers>
         <Offer></Offer>
         <Testimonial></Testimonial>
+        <WebsiteAnalysis></WebsiteAnalysis>
         <HomeBlog></HomeBlog>
         <HomeContact></HomeContact>
       </div>

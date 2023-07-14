@@ -24,31 +24,31 @@ const HomeContact = () => {
           className="mx-auto"
           src="https://i.ibb.co/dBzvxsn/p1-png.webp"
           alt=""
-          srcset=""
+          srcSet=""
         />
         <img
           className="mx-auto"
           src="https://i.ibb.co/wwLTzQD/p2-png.webp"
           alt=""
-          srcset=""
+          srcSet=""
         />
         <img
           className="mx-auto"
           src="https://i.ibb.co/Qks6TyS/p3-png.webp"
           alt=""
-          srcset=""
+          srcSet=""
         />
         <img
           className="mx-auto h-full"
           src="https://i.ibb.co/n6CYHjL/p4-png.webp"
           alt=""
-          srcset=""
+          srcSet=""
         />
         <img
           className="mx-auto"
           src="https://i.ibb.co/n1WP26D/p5-png.webp"
           alt=""
-          srcset=""
+          srcSet=""
         />
       </div>
     </div>

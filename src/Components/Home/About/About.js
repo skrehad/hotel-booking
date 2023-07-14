@@ -25,7 +25,7 @@ const About = () => {
               className="h-full transition ease-in-out duration-300  hover:scale-110 "
               src="https://i.ibb.co/ZgwPY8m/bg-1-jpg.webp"
               alt=""
-              srcset=""
+              srcSet=""
             />
           </div>
           <div className="overflow-hidden rounded-lg">
@@ -33,7 +33,7 @@ const About = () => {
               className="h-full transition ease-in-out duration-300  hover:scale-110 "
               src="https://i.ibb.co/fnQgCZC/13-jpg.webp"
               alt=""
-              srcset=""
+              srcSet=""
             />
           </div>
         </div>
@@ -42,7 +42,7 @@ const About = () => {
             className="h-full transition ease-in-out duration-300  hover:scale-125 "
             src="https://i.ibb.co/M2vHYv7/pexels-photo-5130268.jpg"
             alt=""
-            srcset=""
+            srcSet=""
           />
         </div>
       </div>

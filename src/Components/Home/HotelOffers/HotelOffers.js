@@ -16,8 +16,11 @@ const HotelOffers = () => {
         Ongoing Great Offers
       </h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
-        {offerHotels.map((hotel) => (
-          <div className="w-full max-w-sm bg-white border border-gray-200 rounded-md shadow">
+        {offerHotels.map((hotel, index) => (
+          <div
+            key={index}
+            className="w-full max-w-sm shadow-xl bg-white border border-gray-200 rounded-md"
+          >
             <img
               className="pb-5 rounded-t-md h-[320px]"
               src={hotel.image}

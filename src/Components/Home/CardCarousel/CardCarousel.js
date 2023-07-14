@@ -40,7 +40,7 @@ const CardCarousel = () => {
                 .concat()
                 .reverse()
                 .map((hotel) => (
-                  <div key={hotel.id} className="text-center">
+                  <div key={hotel._id} className="text-center">
                     <img className="h-[250px]" src={hotel.image} alt="Shoes" />
                     <div className="mt-5">
                       <h2 className="card-title text-[#454242] font-serif">
@@ -68,7 +68,7 @@ const CardCarousel = () => {
                   .concat()
                   .reverse()
                   .map((hotel) => (
-                    <div key={hotel.id} className="">
+                    <div key={hotel._id}>
                       <img
                         className="card-image h-[250px]"
                         src={hotel.image}
@@ -96,7 +96,7 @@ const CardCarousel = () => {
       </div>
       <div className="text-center my-10">
         <Link to="/hotels">
-          <button className="text-2xl text-[#454242] hover:text-white rounded-sm py-3 px-7 border border-[#454242] hover:bg-[#454242] hover:border-none font-medium">
+          <button className="text-2xl shadow-xl text-[#454242] hover:text-white rounded-sm py-3 px-7 border border-[#454242] hover:bg-[#454242] hover:border-none font-medium">
             See All Hotels
           </button>
         </Link>
