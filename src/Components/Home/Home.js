@@ -8,6 +8,7 @@ import HomeContact from "./HomeContact/HomeContact";
 import About from "./About/About";
 import Services from "./Services/Services";
 import HotelOffers from "./HotelOffers/HotelOffers";
+import Testimonial from "./Testimonial/Testimonial";
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
         <CardCarousel></CardCarousel>
         <HotelOffers></HotelOffers>
         <Offer></Offer>
-        <p>What People Say</p>
+        <Testimonial></Testimonial>
         <HomeBlog></HomeBlog>
         <HomeContact></HomeContact>
       </div>
