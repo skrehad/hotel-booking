@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <div className="grid my-10 lg:grid-cols-2">
-      <div className="p-10">
+      <div className="pb-5 lg:p-10 md:p-8">
         <p className="text-2xl text-[#636a76] font-serif">ABOUT US</p>
         <h1 className="font-serif text-[40px] text-black">
           Welcome to Hotel Booking
@@ -14,7 +14,8 @@ const About = () => {
           destination.
         </p>
         <p className="text-xl mt-5">
-          <span className="text-black">Manager:</span> <span>Rehad Hasan</span>
+          <span className="text-black">Manager:</span>{" "}
+          <span className="text-[#454242]">Rehad Hasan</span>
         </p>
       </div>
       <div className="grid gap-2 grid-cols-2">

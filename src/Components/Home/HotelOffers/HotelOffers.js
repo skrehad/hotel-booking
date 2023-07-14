@@ -13,7 +13,7 @@ const HotelOffers = () => {
   return (
     <div>
       <h1 className="text-center text-[40px] font-normal text-black font-serif my-10">
-        Ongoing Offers
+        Ongoing Great Offers
       </h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
         {offerHotels.map((hotel) => (

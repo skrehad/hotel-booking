@@ -1,6 +1,6 @@
-.carousel-container {
+/* .carousel-container {
   overflow: hidden;
-}
+} */
 
 .carousel {
   display: flex;
@@ -16,10 +16,10 @@
   }
 }
 
-.card {
+/* .card {
   flex: 0 0 100%;
   max-width: 100%;
-}
+} */
 
 .card-body {
   padding: 1rem;

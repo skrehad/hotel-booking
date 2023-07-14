@@ -17,7 +17,7 @@ const GalleryPictureSlider = () => {
         const nextPictures = galleryPicture.slice(nextIndex, nextIndex + 4);
         setCurrentIndex(nextIndex);
         setShowingPictures(nextPictures);
-      }, 3000);
+      }, 2500);
 
       return () => clearInterval(timer);
     }

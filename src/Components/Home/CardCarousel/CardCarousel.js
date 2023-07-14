@@ -1,178 +1,105 @@
-// import React, { useState, useEffect } from "react";
-// import "./CardCarousel.css";
-
-// const CardCarousel = () => {
-//   const [currentIndex, setCurrentIndex] = useState(0);
-//   const divs = [
-//     {
-//       id: 1,
-//       image: "https://i.ibb.co/pKFCGh7/gallery-2-jpg.webp",
-//       title: "Shoes!",
-//       description: "If a dog chews shoes whose shoes does he choose?",
-//     },
-//     {
-//       id: 2,
-//       image: "https://i.ibb.co/y6GQ4SF/1.jpg",
-//       title: "jacket!",
-//       description: "If a dog chews shoes whose shoes does he choose?",
-//     },
-//     {
-//       id: 3,
-//       image: "https://i.ibb.co/pKFCGh7/gallery-2-jpg.webp",
-//       title: "hello!",
-//       description: "If a dog chews shoes whose shoes does he choose?",
-//     },
-//     {
-//       id: 4,
-//       image: "https://i.ibb.co/y5V1Bf2/gallery-4-jpg.webp",
-//       title: "rehad!",
-//       description: "If a dog chews shoes whose shoes does he choose?",
-//     },
-//     {
-//       id: 5,
-//       image: "https://i.ibb.co/pKFCGh7/gallery-2-jpg.webp",
-//       title: "abc",
-//       description: "If a dog chews shoes whose shoes does he choose?",
-//     },
-//     {
-//       id: 6,
-//       image: "https://i.ibb.co/kBjLdx8/gallery-1-jpg.webp",
-//       title: "kudus",
-//       description: "If a dog chews shoes whose shoes does he choose?",
-//     },
-//     {
-//       id: 7,
-//       image: "https://i.ibb.co/pKFCGh7/gallery-2-jpg.webp",
-//       title: "kaisa",
-//       description: "If a dog chews shoes whose shoes does he choose?",
-//     },
-//     // Add more div objects here if needed
-//   ];
-
-//   const displayedDivs = divs.slice(currentIndex, currentIndex + 3);
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrentIndex((prevIndex) => (prevIndex + 3) % divs.length);
-//     }, 3000);
-
-//     return () => clearInterval(interval);
-//   }, [divs.length]);
-
-//   return (
-//     <div className="grid my-10 gap-5 md:lg:grid-cols-3">
-//       {displayedDivs.map((div) => (
-//         <div key={div.id} className="bg-base-100 shadow-xl">
-//           <img className="h-[220px] w-full" src={div.image} alt="Shoes" />
-//           <div className="card-body">
-//             <h2 className="card-title">{div.title}</h2>
-//             <p>{div.description}</p>
-//             <div className="card-actions justify-end">
-//               <button className="btn btn-primary">Buy Now</button>
-//             </div>
-//           </div>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default CardCarousel;
-
 import React, { useState, useEffect } from "react";
 import "./CardCarousel.css";
+import Loading from "../../../Shared/Loading/Loading";
+import { useQuery } from "react-query";
+import { Rating } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const CardCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const divs = [
-    {
-      id: 1,
-      image: "https://i.ibb.co/pKFCGh7/gallery-2-jpg.webp",
-      title: "Shoes!",
-      description: "If a dog chews shoes whose shoes does he choose?",
-    },
-    {
-      id: 2,
-      image: "https://i.ibb.co/y6GQ4SF/1.jpg",
-      title: "jacket!",
-      description: "If a dog chews shoes whose shoes does he choose?",
-    },
-    {
-      id: 3,
-      image: "https://i.ibb.co/pKFCGh7/gallery-2-jpg.webp",
-      title: "hello!",
-      description: "If a dog chews shoes whose shoes does he choose?",
-    },
-    {
-      id: 4,
-      image: "https://i.ibb.co/y5V1Bf2/gallery-4-jpg.webp",
-      title: "rehad!",
-      description: "If a dog chews shoes whose shoes does he choose?",
-    },
-    {
-      id: 5,
-      image: "https://i.ibb.co/pKFCGh7/gallery-2-jpg.webp",
-      title: "abc",
-      description: "If a dog chews shoes whose shoes does he choose?",
-    },
-    {
-      id: 6,
-      image: "https://i.ibb.co/kBjLdx8/gallery-1-jpg.webp",
-      title: "kudus",
-      description: "If a dog chews shoes whose shoes does he choose?",
-    },
-    {
-      id: 7,
-      image: "https://i.ibb.co/pKFCGh7/gallery-2-jpg.webp",
-      title: "kaisa",
-      description: "If a dog chews shoes whose shoes does he choose?",
-    },
-  ];
+  const { isLoading, data: hotels } = useQuery("hotels", () =>
+    fetch("http://localhost:5000/hotels").then((res) => res.json())
+  );
 
-  const displayedDivs = divs.slice(currentIndex, currentIndex + 3);
+  const displayedHotels = hotels?.slice(currentIndex, currentIndex + 3);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % divs.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % (hotels?.length || 1));
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [divs.length]);
+  }, [hotels?.length]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
-    <div className="carousel-container">
-      <div className="carousel gap-x-5">
-        {divs.length > 3 ? (
-          <>
-            {displayedDivs.map((div) => (
-              <div key={div.id} className="card text-center">
-                <img className="w-full h-[300px]" src={div.image} alt="Shoes" />
-                <div className="card-body">
-                  <h2 className="card-title">{div.title}</h2>
-                  <p>{div.description}</p>
-                  <div className="">
-                    <button className="btn btn-primary">Buy Now</button>
+    <div>
+      <div>
+        <h1 className="text-center text-[40px] font-normal text-black font-serif my-10">
+          Our Hotels
+        </h1>
+      </div>
+      <div className="carousel-container">
+        <div className=" grid md:grid-cols-3 lg:grid-cols-3 gap-5">
+          {hotels && hotels.length > 3 ? (
+            <>
+              {displayedHotels
+                .concat()
+                .reverse()
+                .map((hotel) => (
+                  <div key={hotel.id} className="text-center">
+                    <img className="h-[250px]" src={hotel.image} alt="Shoes" />
+                    <div className="card-body h-[160px]">
+                      <h2 className="card-title text-[#454242] font-serif">
+                        {hotel.name}
+                      </h2>
+                      <div className="flex">
+                        <Rating
+                          name="read-only "
+                          className="w-1/2 my-auto"
+                          value={hotel.rating}
+                          readOnly
+                        />
+                        <button className="btn w-1/2 text-right btn-primary">
+                          See Details
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
-          </>
-        ) : (
-          <>
-            {divs.map((div) => (
-              <div key={div.id} className="card">
-                <img className="card-image" src={div.image} alt="Shoes" />
-                <div className="card-body">
-                  <h2 className="card-title">{div.title}</h2>
-                  <p>{div.description}</p>
-                  <div className="">
-                    <button className="btn btn-primary">Buy Now</button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </>
-        )}
+                ))}
+            </>
+          ) : (
+            <>
+              {hotels &&
+                hotels
+                  .concat()
+                  .reverse()
+                  .map((hotel) => (
+                    <div key={hotel.id} className="">
+                      <img
+                        className="card-image h-[250px]"
+                        src={hotel.image}
+                        alt="Shoes"
+                      />
+                      <div className="card-body h-[160px]">
+                        <h2 className="card-title">{hotel.name}</h2>
+                        <div className="flex">
+                          <Rating
+                            name="read-only "
+                            className="w-1/2"
+                            value={hotel.rating}
+                            readOnly
+                          />
+                          <button className="btn w-1/2 text-right btn-primary">
+                            See Details
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+            </>
+          )}
+        </div>
+      </div>
+      <div className="text-center my-10">
+        <Link to="/hotels">
+          <button className="text-2xl text-[#454242] hover:text-white rounded-sm py-3 px-7 border border-[#454242] hover:bg-[#454242] hover:border-none font-medium">
+            See All Hotels
+          </button>
+        </Link>
       </div>
     </div>
   );
