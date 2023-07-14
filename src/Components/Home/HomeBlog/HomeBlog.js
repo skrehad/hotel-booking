@@ -1,6 +1,7 @@
 import React from "react";
 import Loading from "../../../Shared/Loading/Loading";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 
 const HomeBlog = () => {
   const { isLoading, data: blogs } = useQuery("blogData", () =>
@@ -61,6 +62,13 @@ const HomeBlog = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="text-center my-10">
+        <Link to="/blog">
+          <button className="text-2xl text-[#454242] hover:text-white rounded-sm py-3 px-7 border border-[#454242] hover:bg-[#454242] hover:border-none font-medium">
+            See All Blog
+          </button>
+        </Link>
       </div>
     </div>
   );

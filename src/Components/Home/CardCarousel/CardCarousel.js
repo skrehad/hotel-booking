@@ -29,7 +29,7 @@ const CardCarousel = () => {
     <div>
       <div>
         <h1 className="text-center text-[40px] font-normal text-black font-serif my-10">
-          Our Hotels
+          Explore Our Hotels
         </h1>
       </div>
       <div className="carousel-container">
