@@ -19,6 +19,7 @@ import AddBlog from "../Components/Dashboard/AddBlog/AddBlog";
 import HotelDetail from "../Components/HotelDetail/HotelDetail";
 import AdminRoute from "./AdminRoute";
 import AddGalleryPicture from "../Components/Dashboard/AddGalleryPicture/AddGalleryPicture";
+import Review from "../Components/Review/Review";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -57,7 +58,14 @@ const Routes = () => {
             </PrivateRouter>
           ),
         },
-
+        {
+          path: "/review",
+          element: (
+            <PrivateRouter>
+              <Review></Review>
+            </PrivateRouter>
+          ),
+        },
         {
           path: "/blog",
           element: <Blog></Blog>,
