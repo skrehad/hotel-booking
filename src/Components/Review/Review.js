@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Review = () => {
@@ -22,9 +22,9 @@ const Review = () => {
       rating: data.rating,
       description: data.description,
     };
-    // console.log(blog);
+    console.log(review);
 
-    fetch("http://localhost:5000/review", {
+    fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -33,16 +33,15 @@ const Review = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        // console.log(result);
         toast.success("your review is added successfully");
-        navigate("/blog");
+        navigate("/");
       });
   };
 
   return (
-    <div className=" bg-[url('https://i.ibb.co/C2dPzvb/photo-1571003123894-1f0594d2b5d9.jpg')] bg-cover rounded-lg h-full p-7 mx-auto">
+    <div className=" bg-[url('https://i.ibb.co/VM0qhLC/testimony-img-jpg.webp')] bg-cover rounded-lg h-full p-7 mx-auto">
       <div className="">
-        <h1 className=" text-4xl mb-5 text-center text-black">Add A Review</h1>
+        <h1 className=" text-4xl mb-5 text-center text-white">Add A Review</h1>
 
         <form
           className="bg-white mb-10 lg:w-96 md:w-96 mx-auto p-5 rounded-lg"
@@ -55,7 +54,7 @@ const Review = () => {
             <input
               type="text"
               value={user?.displayName}
-              disabled
+              readOnly
               className="input input-bordered w-full max-w-xs"
             />
           </div>
@@ -66,7 +65,7 @@ const Review = () => {
             <input
               type="text"
               value={user?.email}
-              disabled
+              readOnly
               className="input input-bordered w-full max-w-xs"
             />
           </div>
@@ -76,9 +75,8 @@ const Review = () => {
             </label>
             <input
               type="number"
-              {...register("rating", {
-                required: "rating is Required",
-              })}
+              placeholder="Rating Number"
+              {...register("rating")}
               required
               min={1}
               max={5}
@@ -91,10 +89,8 @@ const Review = () => {
             </label>
             <textarea
               type="text"
-              placeholder="Review Us"
-              {...register("description", {
-                required: "description is Required",
-              })}
+              placeholder="Share your Experience"
+              {...register("description")}
               required
               className="input h-40 pt-2 input-bordered w-full max-w-xs"
             />
@@ -104,9 +100,16 @@ const Review = () => {
           </div>
 
           <div className="text-center">
-            <input className="btn   mt-4" value="Add a Blog" type="submit" />
+            <input className="btn   mt-4" value="Add a Review" type="submit" />
           </div>
         </form>
+      </div>
+      <div className="text-center my-10">
+        <Link to="/">
+          <button className="text-2xl text-white hover:text-black rounded-sm py-3 px-7 border border-white hover:bg-white hover:border-none font-medium">
+            Go to home
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -41,14 +41,14 @@ const Blog = () => {
               .map((blog) => (
                 <div
                   key={blog._id}
-                  className="max-w-sm mb-5 w-full md:mx-auto lg:max-w-full lg:flex"
+                  className="max-w-sm lg:mb-5 mb-10 w-full md:mx-auto lg:max-w-full lg:flex"
                 >
                   <div
                     className="lg:h-auto lg:w-[280px] md:h-[250px] flex-none bg-cover text-center overflow-hidden"
                     title=""
                   >
                     <img
-                      className="h-full rounded-l-lg"
+                      className="h-full w-full rounded-l-lg"
                       src={blog.image}
                       alt=""
                       srcSet=""
