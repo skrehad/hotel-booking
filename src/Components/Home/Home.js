@@ -10,11 +10,12 @@ import Services from "./Services/Services";
 import HotelOffers from "./HotelOffers/HotelOffers";
 import Testimonial from "./Testimonial/Testimonial";
 import WebsiteAnalysis from "./WebsiteAnalysis/WebsiteAnalysis";
+import SliderComponent from "./SliderComponent/SliderComponent";
 
 const Home = () => {
   return (
     <div>
-      <div>home</div>
+      <SliderComponent></SliderComponent>
       <div className="lg:mx-20 md:mx-12 mx-10">
         <About></About>
         <Services></Services>

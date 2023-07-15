@@ -37,7 +37,7 @@ const Testimonial = () => {
       <div className="lg:flex md:flex mb-10 bg-white rounded-md mt-20 shadow-xl">
         <div className="lg:w-1/3 md:w-1/3 flex-none">
           <img
-            className="lg:rounded-l-md md:rounded-l-md rounded-t-md lg:rounded-tr-none md:rounded-tr-none"
+            className="lg:rounded-l-md shadow-xl md:rounded-l-md rounded-t-md lg:rounded-tr-none md:rounded-tr-none"
             src="https://i.ibb.co/VM0qhLC/testimony-img-jpg.webp"
             alt=""
             srcSet=""
