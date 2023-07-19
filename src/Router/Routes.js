@@ -20,6 +20,7 @@ import HotelDetail from "../Components/HotelDetail/HotelDetail";
 import AdminRoute from "./AdminRoute";
 import AddGalleryPicture from "../Components/Dashboard/AddGalleryPicture/AddGalleryPicture";
 import Review from "../Components/Review/Review";
+import Payments from "../Components/Dashboard/Payments/Payments";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -66,6 +67,7 @@ const Routes = () => {
             </PrivateRouter>
           ),
         },
+
         {
           path: "/blog",
           element: <Blog></Blog>,
@@ -135,6 +137,12 @@ const Routes = () => {
               <AddGalleryPicture></AddGalleryPicture>
             </AdminRoute>
           ),
+        },
+        {
+          path: "/dashboard/payment/:id",
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/booking/${params.id}`),
+          element: <Payments></Payments>,
         },
       ],
     },

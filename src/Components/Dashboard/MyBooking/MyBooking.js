@@ -117,8 +117,17 @@ const MyBooking = () => {
                   <td className="font-bold px-2">
                     ${booking.price * booking.totalDay}
                   </td>
-                  <td className="pr-2 pl-0">
-                    <button className="btn test-white btn-sm">Pay</button>
+                  <td>
+                    {booking.price && !booking.paid && (
+                      <Link to={`/dashboard/payment/${booking._id}`}>
+                        <button className="btn btn-sm">Pay</button>
+                      </Link>
+                    )}
+                    {booking.price && booking.paid && (
+                      <button disabled className="btn btn-sm">
+                        Paid
+                      </button>
+                    )}
                   </td>
                   <td className="pr-2 pl-0">
                     <label
