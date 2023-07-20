@@ -20,7 +20,10 @@ const DashboardLayout = () => {
           <label htmlFor="dashboardDrawer" className="drawer-overlay"></label>
           <ul className="menu bg-white p-6">
             <li className="my-2 text-[#75313f]">
-              <Link to="/dashboard" className="hover:text-[#ff0336] ">
+              <Link
+                to="/dashboard"
+                className="hover:text-[#ff0336] text-[18px]"
+              >
                 My Booking
               </Link>
             </li>
@@ -30,7 +33,7 @@ const DashboardLayout = () => {
                 <li className="my-1">
                   <NavLink
                     to="/dashboard/users "
-                    className="hover:text-[#ff0336] "
+                    className="hover:text-[#ff0336] text-black text-[18px]"
                   >
                     Manage Users
                   </NavLink>
@@ -38,7 +41,7 @@ const DashboardLayout = () => {
                 <li className="my-1">
                   <NavLink
                     to="/dashboard/addHotel"
-                    className="hover:text-[#ff0336] "
+                    className="hover:text-[#ff0336] text-black text-[18px]"
                   >
                     Add A Hotel
                   </NavLink>
@@ -46,7 +49,7 @@ const DashboardLayout = () => {
                 <li className="my-1">
                   <NavLink
                     to="/dashboard/manageHotels"
-                    className="hover:text-[#ff0336] "
+                    className="hover:text-[#ff0336] text-black text-[18px]"
                   >
                     Manage Hotels
                   </NavLink>
@@ -54,7 +57,7 @@ const DashboardLayout = () => {
                 <li className="my-1">
                   <NavLink
                     to="/dashboard/addBlog"
-                    className="hover:text-[#ff0336] "
+                    className="hover:text-[#ff0336] text-black text-[18px]"
                   >
                     Add Blog
                   </NavLink>
@@ -62,7 +65,7 @@ const DashboardLayout = () => {
                 <li className="my-1">
                   <NavLink
                     to="/dashboard/addGalleryPicture"
-                    className="hover:text-[#ff0336] "
+                    className="hover:text-[#ff0336] text-black text-[18px]"
                   >
                     Add Gallery Picture
                   </NavLink>
