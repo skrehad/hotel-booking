@@ -12,9 +12,8 @@
 » Access to the database of the website or application for data management and backup purposes.<br />
 » Users can enter their travel destination, check-in and check-out dates, and the number of guests to find available hotels in the area.<br />
 » The website compares prices from hotels and booking platforms, helping users find the best deals and discounts.<br />
-
-**Admin panel: An Admin can control users,add a hotel,manage hotels,edit hotels,add a blog,add a gallery picture,control everything in this website** <br />
 » That hole process connects to the backend.
+**Admin panel: An Admin can control users,add a hotel,manage hotels,edit hotels,add a blog,add a gallery picture,control everything in this website** <br />
 
 👉 Live Demo: https://hotel-booking-6fdb2.web.app/
 
