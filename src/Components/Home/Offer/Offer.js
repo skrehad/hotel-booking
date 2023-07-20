@@ -7,7 +7,7 @@ const Offer = () => {
   return (
     <div className="my-10">
       <motion.h1
-        variants={fadeIn("right", 0.3)}
+        variants={fadeIn("up", 0.3)}
         initial="hidden"
         whileInView={"show"}
         viewPort={{ once: false, amount: 0.3 }}
@@ -17,7 +17,7 @@ const Offer = () => {
       </motion.h1>
       <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-10 ">
         <motion.div
-          variants={fadeIn("right", 0.3)}
+          variants={fadeIn("up", 0.3)}
           initial="hidden"
           whileInView={"show"}
           viewPort={{ once: false, amount: 0.3 }}
@@ -53,7 +53,7 @@ const Offer = () => {
           </div>
         </motion.div>
         <motion.div
-          variants={fadeIn("left", 0.3)}
+          variants={fadeIn("up", 0.3)}
           initial="hidden"
           whileInView={"show"}
           viewPort={{ once: false, amount: 0.3 }}

@@ -110,7 +110,7 @@ const CardCarousel = () => {
         </div>
       </motion.div>
       <motion.div
-        variants={fadeIn("right", 0.3)}
+        variants={fadeIn("up", 0.3)}
         initial="hidden"
         whileInView={"show"}
         viewPort={{ once: false, amount: 0.3 }}

@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className="grid my-10 lg:grid-cols-2">
       <motion.div
-        variants={fadeIn("right", 0.3)}
+        variants={fadeIn("up", 0.3)}
         initial="hidden"
         whileInView={"show"}
         viewPort={{ once: false, amount: 0.3 }}
@@ -27,7 +27,7 @@ const About = () => {
         </p>
       </motion.div>
       <motion.div
-        variants={fadeIn("left", 0.3)}
+        variants={fadeIn("up", 0.3)}
         initial="hidden"
         whileInView={"show"}
         viewPort={{ once: false, amount: 0.3 }}

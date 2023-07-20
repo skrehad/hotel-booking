@@ -35,7 +35,7 @@ const Blog = () => {
       </div>
       <div className="lg:mx-28 md:mx-20 mx-10 mt-10">
         <motion.div
-          variants={fadeIn("right", 0.3)}
+          variants={fadeIn("up", 0.3)}
           initial="hidden"
           whileInView={"show"}
           viewPort={{ once: false, amount: 0.3 }}

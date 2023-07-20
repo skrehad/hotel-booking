@@ -17,7 +17,7 @@ const About = () => {
       <div className="lg:mx-28 mx-10 mt-10">
         <div className="lg:grid lg:mb-16 mb-8 md:mb-16 grid-cols-2 md:grid">
           <motion.div
-            variants={fadeIn("right", 0.3)}
+            variants={fadeIn("up", 0.3)}
             initial="hidden"
             whileInView={"show"}
             viewPort={{ once: false, amount: 0.3 }}
@@ -35,7 +35,7 @@ const About = () => {
             </p>
           </motion.div>
           <motion.div
-            variants={fadeIn("left", 0.3)}
+            variants={fadeIn("up", 0.3)}
             initial="hidden"
             whileInView={"show"}
             viewPort={{ once: false, amount: 0.3 }}
@@ -95,7 +95,7 @@ const About = () => {
         </div>
         <div className="lg:grid lg:mb-16 mb-8 md:mb-16 grid-cols-2 md:grid">
           <motion.div
-            variants={fadeIn("right", 0.3)}
+            variants={fadeIn("up", 0.3)}
             initial="hidden"
             whileInView={"show"}
             viewPort={{ once: false, amount: 0.3 }}
@@ -113,7 +113,7 @@ const About = () => {
             </p>
           </motion.div>
           <motion.div
-            variants={fadeIn("left", 0.3)}
+            variants={fadeIn("up", 0.3)}
             initial="hidden"
             whileInView={"show"}
             viewPort={{ once: false, amount: 0.3 }}

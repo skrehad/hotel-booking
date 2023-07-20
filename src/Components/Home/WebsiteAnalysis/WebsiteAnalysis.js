@@ -48,7 +48,7 @@ const WebsiteAnalysis = () => {
     <div className="text-center my-12">
       <div className="shadow-2xl rounded-lg py-6 bg-white grid lg:grid-cols-3 grid-cols-1">
         <motion.div
-          variants={fadeIn("right", 0.3)}
+          variants={fadeIn("up", 0.3)}
           initial="hidden"
           whileInView={"show"}
           viewPort={{ once: false, amount: 0.3 }}
@@ -79,7 +79,7 @@ const WebsiteAnalysis = () => {
         </motion.div>
 
         <motion.div
-          variants={fadeIn("up", 0.3)}
+          // variants={fadeIn("up", 0.3)}
           initial="hidden"
           whileInView={"show"}
           viewPort={{ once: false, amount: 0.3 }}
@@ -110,7 +110,7 @@ const WebsiteAnalysis = () => {
         </motion.div>
 
         <motion.div
-          variants={fadeIn("left", 0.3)}
+          variants={fadeIn("up", 0.3)}
           initial="hidden"
           whileInView={"show"}
           viewPort={{ once: false, amount: 0.3 }}
