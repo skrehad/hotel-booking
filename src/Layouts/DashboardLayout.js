@@ -18,7 +18,7 @@ const DashboardLayout = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboardDrawer" className="drawer-overlay"></label>
-          <ul className="menu bg-white p-6">
+          <ul className="menu bg-white px-6 py-14 lg:py-8">
             <li className="my-2 text-[#75313f]">
               <Link
                 to="/dashboard"

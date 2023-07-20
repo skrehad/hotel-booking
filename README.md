@@ -2,7 +2,18 @@
 
 **About the project 👇** <br />
 
-This is an E-Commerce Website, Where user can Login (Google && FaceBook) and Register.Fully responsive on mobile devices this website. You can add a review that shows the home page. You can buy a product that's showing on your OderCard. You can remove your order from your OrderCard. You can show products or services with images, descriptions, pricing, rating, and availability information directly connected with the backend. You can review each product which also shows the details order page in your review. That hole process connects to the backend.
+» This is a Hotel Booking Website, Where user can Login (Google && FaceBook) and Register.
+» Responsive design that allows users to access and book hotels on various devices, including smartphones and tablets.
+» The ability to add, edit, and delete user accounts, as well as assign user roles and permissions.
+» User can booking a hotel that's showing on User DashBoard.
+» User can remove User booking hotel from User DashBoard.
+» User can show hotels with images, descriptions, pricing, rating, and availability information directly connected with the backend.
+» User can review website which also shows the home page in testimonial.
+» Access to the database of the website or application for data management and backup purposes.
+» Users can enter their travel destination, check-in and check-out dates, and the number of guests to find available hotels in the area.
+» The website compares prices from hotels and booking platforms, helping users find the best deals and discounts.
+» Once users find a suitable hotel, they can proceed to book it directly through the website using secure online payment methods.
+» That hole process connects to the backend.
 
 👉 Live Demo: https://hotel-booking-6fdb2.web.app/
 
@@ -19,6 +30,9 @@ This is an E-Commerce Website, Where user can Login (Google && FaceBook) and Reg
 » FireBase <br />
 » VS Code <br />
 » GitHub <br />
+
+**Admin Email: test@gmail.com** <br />
+**Admin Password: 12345678** <br />
 
 **_Screenshots of the Project 📸_**
 
