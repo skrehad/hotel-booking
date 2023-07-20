@@ -6,7 +6,9 @@ const useToken = (email) => {
   const [token, setToken] = useState("");
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/jwt?email=${email}`)
+      fetch(
+        `https://hotel-booking-backend-server-skrehad.vercel.app/jwt?email=${email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           // console.log("useToken", data);

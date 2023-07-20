@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 const HotelOffers = () => {
   const { isLoading, data: offerHotels } = useQuery("offerHotels", () =>
-    fetch("http://localhost:5000/offerHotels").then((res) => res.json())
+    fetch(
+      "https://hotel-booking-backend-server-skrehad.vercel.app/offerHotels"
+    ).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
@@ -31,7 +33,7 @@ const HotelOffers = () => {
               <h1 className="font-serif text-[#454242] text-2xl mb-5">
                 Up to 35% savings on Club rooms and Suites
               </h1>
-              <p className="font-serif text-[#796e6e]">Luxaries condition</p>
+              <p className="font-serif text-[#796e6e]">Luxuries condition</p>
               <p className="font-serif text-[#796e6e]">
                 3 Adults & 2 Children size
               </p>

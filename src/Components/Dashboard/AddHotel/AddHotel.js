@@ -39,14 +39,17 @@ const AddHotel = () => {
             image4: data.image4,
             image5: data.image5,
           };
-          fetch("http://localhost:5000/hotels", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(hotel),
-          })
+          fetch(
+            "https://hotel-booking-backend-server-skrehad.vercel.app/hotels",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(hotel),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               // console.log(result);

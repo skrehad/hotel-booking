@@ -5,7 +5,9 @@ import { toast } from "react-hot-toast";
 
 const Blog = () => {
   const { isLoading, data: blogs } = useQuery("blogData", () =>
-    fetch("http://localhost:5000/blog").then((res) => res.json())
+    fetch("https://hotel-booking-backend-server-skrehad.vercel.app/blog").then(
+      (res) => res.json()
+    )
   );
   if (isLoading) {
     return <Loading></Loading>;

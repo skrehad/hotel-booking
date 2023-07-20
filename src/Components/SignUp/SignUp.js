@@ -36,7 +36,7 @@ const SignUp = () => {
         displayName(name);
 
         const setUser = { name, email };
-        fetch("http://localhost:5000/users", {
+        fetch("https://hotel-booking-backend-server-skrehad.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -71,7 +71,7 @@ const SignUp = () => {
         const name = user.displayName;
         const email = user.email;
         const setUser = { name, email };
-        fetch("http://localhost:5000/users", {
+        fetch("https://hotel-booking-backend-server-skrehad.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -97,7 +97,7 @@ const SignUp = () => {
         const name = user.displayName;
         const email = user.email;
         const setUser = { name, email };
-        fetch("http://localhost:5000/users", {
+        fetch("https://hotel-booking-backend-server-skrehad.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

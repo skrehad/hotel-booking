@@ -51,7 +51,9 @@ const Routes = () => {
         {
           path: "/hotels/:id",
           loader: async ({ params }) => {
-            return fetch(`http://localhost:5000/hotels/${params.id}`);
+            return fetch(
+              `https://hotel-booking-backend-server-skrehad.vercel.app/hotels/${params.id}`
+            );
           },
           element: (
             <PrivateRouter>
@@ -141,7 +143,9 @@ const Routes = () => {
         {
           path: "/dashboard/payment/:id",
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/booking/${params.id}`),
+            fetch(
+              `https://hotel-booking-backend-server-skrehad.vercel.app/booking/${params.id}`
+            ),
           element: <Payments></Payments>,
         },
       ],

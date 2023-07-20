@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 const HomeBlog = () => {
   const { isLoading, data: blogs } = useQuery("blogData", () =>
-    fetch("http://localhost:5000/blog").then((res) => res.json())
+    fetch("https://hotel-booking-backend-server-skrehad.vercel.app/blog").then(
+      (res) => res.json()
+    )
   );
   if (isLoading) {
     return <Loading></Loading>;

@@ -5,7 +5,9 @@ import Hotel from "../Hotel/Hotel";
 
 const Hotels = () => {
   const { isLoading, data: hotels } = useQuery("hotels", () =>
-    fetch("http://localhost:5000/hotels").then((res) => res.json())
+    fetch(
+      "https://hotel-booking-backend-server-skrehad.vercel.app/hotels"
+    ).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;

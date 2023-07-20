@@ -8,7 +8,9 @@ import { Link } from "react-router-dom";
 const CardCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { isLoading, data: hotels } = useQuery("hotels", () =>
-    fetch("http://localhost:5000/hotels").then((res) => res.json())
+    fetch(
+      "https://hotel-booking-backend-server-skrehad.vercel.app/hotels"
+    ).then((res) => res.json())
   );
 
   const displayedHotels = hotels?.slice(currentIndex, currentIndex + 3);

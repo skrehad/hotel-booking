@@ -4,7 +4,9 @@ import Loading from "../../../Shared/Loading/Loading";
 
 const GalleryPictureSlider = () => {
   const { isLoading, data: galleryPicture } = useQuery("galleryPicture", () =>
-    fetch("http://localhost:5000/gallery").then((res) => res.json())
+    fetch(
+      "https://hotel-booking-backend-server-skrehad.vercel.app/gallery"
+    ).then((res) => res.json())
   );
 
   const [currentIndex, setCurrentIndex] = useState(0);

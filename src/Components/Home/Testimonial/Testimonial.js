@@ -6,7 +6,9 @@ import { Rating } from "@mui/material";
 
 const Testimonial = () => {
   const { isLoading, data: reviews } = useQuery("reviews", () =>
-    fetch("http://localhost:5000/reviews").then((res) => res.json())
+    fetch(
+      "https://hotel-booking-backend-server-skrehad.vercel.app/reviews"
+    ).then((res) => res.json())
   );
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -28,14 +28,17 @@ const AddGalleryPicture = () => {
             image: imgData.data.url,
           };
 
-          fetch("http://localhost:5000/gallery", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(GalleryImage),
-          })
+          fetch(
+            "https://hotel-booking-backend-server-skrehad.vercel.app/gallery",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(GalleryImage),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               toast.success("your Picture is added successfully in Gallery");

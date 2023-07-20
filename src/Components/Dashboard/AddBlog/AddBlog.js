@@ -38,14 +38,17 @@ const AddBlog = () => {
           };
           // console.log(blog);
 
-          fetch("http://localhost:5000/blog", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(blog),
-          })
+          fetch(
+            "https://hotel-booking-backend-server-skrehad.vercel.app/blog",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(blog),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               // console.log(result);

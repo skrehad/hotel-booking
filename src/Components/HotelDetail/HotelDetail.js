@@ -53,7 +53,7 @@ const HotelDetail = () => {
         endDate: formatDate(startDate),
         totalDay: getDayCount(startDate, endDate),
       };
-      fetch("http://localhost:5000/booking", {
+      fetch("https://hotel-booking-backend-server-skrehad.vercel.app/booking", {
         method: "POST",
         headers: {
           "content-type": "application/json",

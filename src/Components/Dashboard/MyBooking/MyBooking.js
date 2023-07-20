@@ -14,7 +14,7 @@ const MyBooking = () => {
     setDeletingBooking(null);
   };
 
-  const url = `http://localhost:5000/booking?email=${user?.email}`;
+  const url = `https://hotel-booking-backend-server-skrehad.vercel.app/booking?email=${user?.email}`;
 
   const {
     data: allBookings = [],
@@ -43,9 +43,12 @@ const MyBooking = () => {
   }
 
   const handleDeleteBooking = (booking) => {
-    fetch(`http://localhost:5000/booking/${booking._id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://hotel-booking-backend-server-skrehad.vercel.app/booking/${booking._id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
