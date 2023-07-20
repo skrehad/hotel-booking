@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../../variants";
 
 const WebsiteAnalysis = () => {
   const [likes, setLikes] = useState(0);
@@ -45,7 +47,13 @@ const WebsiteAnalysis = () => {
   return (
     <div className="text-center my-12">
       <div className="shadow-2xl rounded-lg py-6 bg-white grid lg:grid-cols-3 grid-cols-1">
-        <div className="py-8 text-center lg:border-r border-purple-900">
+        <motion.div
+          variants={fadeIn("right", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewPort={{ once: false, amount: 0.3 }}
+          className="py-8 text-center lg:border-r border-purple-900"
+        >
           <div className="stat-figure text-primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,9 +76,15 @@ const WebsiteAnalysis = () => {
           <div className="stat-desc font-mono text-[#454242] font-bold">
             21% more than last month
           </div>
-        </div>
+        </motion.div>
 
-        <div className="py-8 text-center lg:border-r border-purple-900">
+        <motion.div
+          variants={fadeIn("up", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewPort={{ once: false, amount: 0.3 }}
+          className="py-8 text-center lg:border-r border-purple-900"
+        >
           <div className="stat-figure text-secondary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -93,9 +107,15 @@ const WebsiteAnalysis = () => {
           <div className="stat-desc font-mono text-[#454242] font-bold">
             18% more than last month
           </div>
-        </div>
+        </motion.div>
 
-        <div className="py-8 text-center">
+        <motion.div
+          variants={fadeIn("left", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewPort={{ once: false, amount: 0.3 }}
+          className="py-8 text-center"
+        >
           <div className="stat-figure text-secondary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +139,7 @@ const WebsiteAnalysis = () => {
           <div className="stat-desc font-mono text-[#454242] font-bold">
             Total Review
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -1,13 +1,21 @@
 import { Rating } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../variants";
 
 const Hotel = ({ hotel }) => {
   const { _id, image, name, rating, price } = hotel;
   // console.log(hotel);
   return (
     <div>
-      <div className="w-full my-10 max-w-sm bg-white border border-gray-200 rounded-md shadow">
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="w-full my-10 max-w-sm bg-white border border-gray-200 rounded-md shadow"
+      >
         <img
           className="pb-5 rounded-t-lg h-[320px]"
           src={image}
@@ -40,7 +48,7 @@ const Hotel = ({ hotel }) => {
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

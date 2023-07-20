@@ -4,8 +4,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { BsFacebook, BsGoogle } from "react-icons/bs";
 import useToken from "../../hooks/useToken";
+import useTitle from "../../Shared/TitleChange/TitleChange";
 
 const SignUp = () => {
+  useTitle("SignUp");
+
   const { createUser, updateName, googleSingIn, facebookSingIn } =
     useContext(AuthContext);
   const navigate = useNavigate();

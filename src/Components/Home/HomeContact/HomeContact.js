@@ -1,10 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../../variants";
 
 const HomeContact = () => {
   return (
     <div className="my-10">
-      <div className="lg:h-[200px] p-10 mb-10 grid lg:grid-cols-2 md:grid-cols-2 md:h-[200px] bg-[url('https://i.ibb.co/y6cLjyt/1-jpg.webp')]">
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="lg:h-[200px] p-10 mb-10 grid lg:grid-cols-2 md:grid-cols-2 md:h-[200px] bg-[url('https://i.ibb.co/y6cLjyt/1-jpg.webp')]"
+      >
         <div className="m-auto">
           <h1 className="text-[40px] text-white font-serif">Contact us now!</h1>
           <p className="mt-2 text-white">
@@ -18,8 +26,14 @@ const HomeContact = () => {
             </button>
           </Link>
         </div>
-      </div>
-      <div className="grid gap-20  lg:grid-cols-5 md:grid-cols-5">
+      </motion.div>
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="grid gap-20  lg:grid-cols-5 md:grid-cols-5"
+      >
         <img
           className="mx-auto"
           src="https://i.ibb.co/dBzvxsn/p1-png.webp"
@@ -50,7 +64,7 @@ const HomeContact = () => {
           alt=""
           srcSet=""
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

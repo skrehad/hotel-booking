@@ -2,8 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useTitle from "../../../Shared/TitleChange/TitleChange";
 
 const AddGalleryPicture = () => {
+  useTitle("AddGalleryPicture");
+
   const {
     register,
     handleSubmit,

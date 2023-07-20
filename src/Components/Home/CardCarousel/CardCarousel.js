@@ -4,6 +4,8 @@ import Loading from "../../../Shared/Loading/Loading";
 import { useQuery } from "react-query";
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../../variants";
 
 const CardCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,12 +31,23 @@ const CardCarousel = () => {
 
   return (
     <div>
-      <div>
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+      >
         <h1 className="text-center text-[40px] font-normal text-black font-serif my-10">
           Explore Our Hotels
         </h1>
-      </div>
-      <div className="carousel-container">
+      </motion.div>
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="carousel-container"
+      >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {hotels && hotels.length > 3 ? (
             <>
@@ -95,14 +108,20 @@ const CardCarousel = () => {
             </>
           )}
         </div>
-      </div>
-      <div className="text-center my-10">
+      </motion.div>
+      <motion.div
+        variants={fadeIn("right", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="text-center my-10"
+      >
         <Link to="/hotels">
           <button className="text-2xl shadow-xl text-[#454242] hover:text-white rounded-sm py-3 px-7 border border-[#454242] hover:bg-[#454242] hover:border-none font-medium">
             See All Hotels
           </button>
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 };

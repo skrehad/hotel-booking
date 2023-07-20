@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../../variants";
 
 const Services = () => {
   return (
@@ -6,7 +8,13 @@ const Services = () => {
       <h1 className="font-serif text-[40px] text-black text-center">
         Our Services
       </h1>
-      <div className="grid mt-5 mb-10 gap-5 lg:grid-cols-3 md:grid-cols-3 ">
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="grid mt-5 mb-10 gap-5 lg:grid-cols-3 md:grid-cols-3 "
+      >
         <div className="bg-white rounded-md p-10 shadow-xl">
           <img
             className="mx-auto"
@@ -73,7 +81,7 @@ const Services = () => {
             TV HD
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

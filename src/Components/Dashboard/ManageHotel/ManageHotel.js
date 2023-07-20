@@ -4,8 +4,11 @@ import Loading from "../../../Shared/Loading/Loading";
 import { toast } from "react-hot-toast";
 import ConfirmationModal from "../../../Shared/ConfirmationModal/ConfirmationModal";
 import { Rating } from "@mui/material";
+import useTitle from "../../../Shared/TitleChange/TitleChange";
 
 const ManageHotel = () => {
+  useTitle("ManageHotel");
+
   const [deletingHotel, setDeletingHotel] = useState(null);
   const closeModal = () => {
     setDeletingHotel(null);

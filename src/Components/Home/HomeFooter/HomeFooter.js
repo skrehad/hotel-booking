@@ -1,9 +1,17 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../../variants";
 
 const HomeFooter = () => {
   return (
     <section className="bg-white dark:bg-gray-900">
-      <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6"
+      >
         <div className="mx-auto max-w-screen-md sm:text-center">
           <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">
             Sign up for our newsletter
@@ -62,7 +70,7 @@ const HomeFooter = () => {
             </div>
           </form>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

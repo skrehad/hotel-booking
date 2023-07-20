@@ -6,8 +6,11 @@ import ConfirmationModal from "../../../Shared/ConfirmationModal/ConfirmationMod
 import { Rating } from "@mui/material";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
+import useTitle from "../../../Shared/TitleChange/TitleChange";
 
 const MyBooking = () => {
+  useTitle("MyBooking");
+
   const [deletingBooking, setDeletingBooking] = useState(null);
   const { user } = useContext(AuthContext);
   const closeModal = () => {

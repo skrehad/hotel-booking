@@ -1,7 +1,10 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import useTitle from "../../../Shared/TitleChange/TitleChange";
 
 const CheckoutForm = ({ booking }) => {
+  useTitle("CheckoutForm");
+
   const [cardError, setCardError] = useState("");
   const [success, setSuccess] = useState("");
   const [processing, setProcessing] = useState(false);

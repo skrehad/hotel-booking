@@ -11,8 +11,10 @@ import HotelOffers from "./HotelOffers/HotelOffers";
 import Testimonial from "./Testimonial/Testimonial";
 import WebsiteAnalysis from "./WebsiteAnalysis/WebsiteAnalysis";
 import SliderComponent from "./SliderComponent/SliderComponent";
+import useTitle from "../../Shared/TitleChange/TitleChange";
 
 const Home = () => {
+  useTitle("Home");
   return (
     <div>
       <SliderComponent></SliderComponent>

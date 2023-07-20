@@ -2,6 +2,8 @@ import React from "react";
 import Loading from "../../../Shared/Loading/Loading";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../../variants";
 
 const HotelOffers = () => {
   const { isLoading, data: offerHotels } = useQuery("offerHotels", () =>
@@ -14,10 +16,22 @@ const HotelOffers = () => {
   }
   return (
     <div>
-      <h1 className="text-center text-[40px] font-normal text-black font-serif my-10">
+      <motion.h1
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="text-center text-[40px] font-normal text-black font-serif my-10"
+      >
         Ongoing Great Offers
-      </h1>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
+      </motion.h1>
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="grid lg:grid-cols-3 md:grid-cols-2 gap-5"
+      >
         {offerHotels.map((hotel, index) => (
           <div
             key={index}
@@ -51,7 +65,7 @@ const HotelOffers = () => {
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

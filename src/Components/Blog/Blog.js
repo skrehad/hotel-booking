@@ -2,8 +2,12 @@ import React from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 import { toast } from "react-hot-toast";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../variants";
+import useTitle from "../../Shared/TitleChange/TitleChange";
 
 const Blog = () => {
+  useTitle("Blog");
   const { isLoading, data: blogs } = useQuery("blogData", () =>
     fetch("https://hotel-booking-backend-server-skrehad.vercel.app/blog").then(
       (res) => res.json()
@@ -30,18 +34,27 @@ const Blog = () => {
         </div>
       </div>
       <div className="lg:mx-28 md:mx-20 mx-10 mt-10">
-        <div>
+        <motion.div
+          variants={fadeIn("right", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewPort={{ once: false, amount: 0.3 }}
+        >
           <h1 className="text-[50px] text-black md:text-center lg:text-left mb-10">
             The Blog
           </h1>
-        </div>
+        </motion.div>
         <div className="lg:flex">
           <div className="w-full ">
             {blogs
               .concat()
               .reverse()
               .map((blog) => (
-                <div
+                <motion.div
+                  variants={fadeIn("up", 0.3)}
+                  initial="hidden"
+                  whileInView={"show"}
+                  viewPort={{ once: false, amount: 0.3 }}
                   key={blog._id}
                   className="max-w-sm lg:mb-5 mb-10 w-full md:mx-auto lg:max-w-full lg:flex"
                 >
@@ -85,10 +98,16 @@ const Blog = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
           </div>
-          <div className="w-none ">
+          <motion.div
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewPort={{ once: false, amount: 0.3 }}
+            className="w-none "
+          >
             <div className="flex justify-center sticky top-20 flex-wrap ">
               <div className="my-5 lg:mt-0 mx-3 py-5 px-5 bg-gray-800 rounded inline-block">
                 <p className="text-white font-bold text-sm text-center mb-3">
@@ -115,7 +134,7 @@ const Blog = () => {
                 </form>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

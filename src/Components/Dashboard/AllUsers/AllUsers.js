@@ -3,8 +3,11 @@ import { useQuery } from "react-query";
 import Loading from "../../../Shared/Loading/Loading";
 import { toast } from "react-hot-toast";
 import ConfirmationModal from "../../../Shared/ConfirmationModal/ConfirmationModal";
+import useTitle from "../../../Shared/TitleChange/TitleChange";
 
 const AllUsers = () => {
+  useTitle("AllUsers");
+
   const [searchItem, setSearchItem] = useState("");
   const [deletingUser, setDeletingUser] = useState(null);
   const closeModal = () => {

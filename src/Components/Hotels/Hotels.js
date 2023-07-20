@@ -2,8 +2,11 @@ import React from "react";
 import Loading from "../../Shared/Loading/Loading";
 import { useQuery } from "react-query";
 import Hotel from "../Hotel/Hotel";
+import useTitle from "../../Shared/TitleChange/TitleChange";
 
 const Hotels = () => {
+  useTitle("Hotels");
+
   const { isLoading, data: hotels } = useQuery("hotels", () =>
     fetch(
       "https://hotel-booking-backend-server-skrehad.vercel.app/hotels"

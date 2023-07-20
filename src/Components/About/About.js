@@ -1,6 +1,10 @@
 import React from "react";
+import useTitle from "../../Shared/TitleChange/TitleChange";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../variants";
 
 const About = () => {
+  useTitle("About");
   return (
     <div>
       <div className="bg-[url('https://i.ibb.co/chv1csw/beautiful-luxury-outdoor-swimming-pool-hotel-resort-74190-7433.jpg')] h-[300px] md:h-[400px] lg:h-[400px] md:bg-cover lg:bg-cover">
@@ -12,7 +16,13 @@ const About = () => {
       </div>
       <div className="lg:mx-28 mx-10 mt-10">
         <div className="lg:grid lg:mb-16 mb-8 md:mb-16 grid-cols-2 md:grid">
-          <div className="lg:p-5 md:p-5 ">
+          <motion.div
+            variants={fadeIn("right", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewPort={{ once: false, amount: 0.3 }}
+            className="lg:p-5 md:p-5 "
+          >
             <h1 className="text-5xl  md:text-3xl lg:text-5xl lg:mt-5 text-black">
               Finest Luxury Hotels in St. Moritz
             </h1>
@@ -23,24 +33,42 @@ const About = () => {
               four loko tempor duis single-origin coffee. Banksy, elit small
               batch freegan sed.
             </p>
-          </div>
-          <div className="mt-5 lg:mt-0 md:mt-0">
+          </motion.div>
+          <motion.div
+            variants={fadeIn("left", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewPort={{ once: false, amount: 0.3 }}
+            className="mt-5 lg:mt-0 md:mt-0"
+          >
             <img
               src="https://i.ibb.co/bHQKjT3/about-pic1.jpg"
               alt=""
               srcSet=""
             />
-          </div>
+          </motion.div>
         </div>
         <div className="lg:grid lg:mb-16 mb-8 md:mb-16 grid-cols-2 md:grid">
-          <div className="hidden lg:block md:block  lg:pr-5 md:pr-5 mt-5 lg:mt-0 md:mt-0">
+          <motion.div
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewPort={{ once: false, amount: 0.3 }}
+            className="hidden lg:block md:block  lg:pr-5 md:pr-5 mt-5 lg:mt-0 md:mt-0"
+          >
             <img
               src="https://i.ibb.co/SP7rbND/crew-89808-unsplash-1.jpg"
               alt=""
               srcSet=""
             />
-          </div>
-          <div className="lg:p-5 md:px-5 ">
+          </motion.div>
+          <motion.div
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewPort={{ once: false, amount: 0.3 }}
+            className="lg:p-5 md:px-5 "
+          >
             <h1 className="text-5xl  md:text-3xl lg:text-5xl lg:mt-5 text-black">
               Experience Deliciously from Our Chefs
             </h1>
@@ -50,18 +78,29 @@ const About = () => {
               booth et 8-bit kale chips proident chillwave deep.Experience
               Deliciously from Our Chefs.
             </p>
-          </div>
-          <div className="lg:hidden md:hidden lg:pr-5 md:pr-5 mt-5 lg:mt-0 md:mt-0">
+          </motion.div>
+          <motion.div
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewPort={{ once: false, amount: 0.3 }}
+            className="lg:hidden md:hidden lg:pr-5 md:pr-5 mt-5 lg:mt-0 md:mt-0"
+          >
             <img
               src="https://i.ibb.co/SP7rbND/crew-89808-unsplash-1.jpg"
               alt=""
               srcSet=""
             />
-          </div>
+          </motion.div>
         </div>
-
         <div className="lg:grid lg:mb-16 mb-8 md:mb-16 grid-cols-2 md:grid">
-          <div className="lg:px-5 md:px-5 lg:py-0 p-5 md:py-0 ">
+          <motion.div
+            variants={fadeIn("right", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewPort={{ once: false, amount: 0.3 }}
+            className="lg:px-5 md:px-5 lg:py-0 p-5 md:py-0 "
+          >
             <h1 className="text-5xl  md:text-3xl lg:text-5xl  text-black">
               Mission
             </h1>
@@ -72,8 +111,14 @@ const About = () => {
               easily search for hotels based on their preferences, such as
               location, price, amenities, and dates.
             </p>
-          </div>
-          <div className="lg:px-5 md:px-5 lg:py-0 p-5 md:py-0 ">
+          </motion.div>
+          <motion.div
+            variants={fadeIn("left", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewPort={{ once: false, amount: 0.3 }}
+            className="lg:px-5 md:px-5 lg:py-0 p-5 md:py-0 "
+          >
             <h1 className="text-5xl md:text-3xl lg:text-5xl text-black">
               Values
             </h1>
@@ -84,9 +129,8 @@ const About = () => {
               displaying genuine user reviews to help customers make informed
               decisions.
             </p>
-          </div>
+          </motion.div>
         </div>
-        <div></div>
       </div>
     </div>
   );

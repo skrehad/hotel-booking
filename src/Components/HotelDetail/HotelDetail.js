@@ -14,8 +14,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import useTitle from "../../Shared/TitleChange/TitleChange";
 
 const HotelDetail = () => {
+  useTitle("HotelDetail");
   const hotel = useLoaderData();
   const { user } = useContext(AuthContext);
   const [startDate, setStartDate] = useState(null);

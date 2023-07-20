@@ -6,8 +6,11 @@ import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
 import useToken from "../../hooks/useToken";
 import { useForm } from "react-hook-form";
+import useTitle from "../../Shared/TitleChange/TitleChange";
 
 const Login = () => {
+  useTitle("Login");
+
   const { register, handleSubmit } = useForm();
   const { signInEmail, googleSingIn, facebookSingIn } = useContext(AuthContext);
   const navigate = useNavigate();

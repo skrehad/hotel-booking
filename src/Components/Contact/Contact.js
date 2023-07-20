@@ -4,8 +4,12 @@ import { FaHome } from "react-icons/fa";
 import { IoIosCall } from "react-icons/io";
 import { MdOutlineEmail } from "react-icons/md";
 import { toast } from "react-hot-toast";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../variants";
+import useTitle from "../../Shared/TitleChange/TitleChange";
 
 const Contact = () => {
+  useTitle("Contact");
   const contactForm = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -23,7 +27,13 @@ const Contact = () => {
         <h2 className="font-bold font-mono mb-4">Contact Us</h2>
       </div>
       <div className="container">
-        <div className="contactInfo">
+        <motion.div
+          variants={fadeIn("right", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewPort={{ once: false, amount: 0.3 }}
+          className="contactInfo"
+        >
           <div className="box">
             <div className="icon1">
               <FaHome></FaHome>
@@ -51,8 +61,14 @@ const Contact = () => {
               <p>hotelbookin2002@gmail.com</p>
             </div>
           </div>
-        </div>
-        <div className="contactFrom">
+        </motion.div>
+        <motion.div
+          variants={fadeIn("left", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewPort={{ once: false, amount: 0.3 }}
+          className="contactFrom"
+        >
           <form
             onSubmit={contactForm}
             className="text-center font-bold font-mono"
@@ -93,7 +109,7 @@ const Contact = () => {
               />
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

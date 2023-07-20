@@ -3,6 +3,8 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import Loading from "../../../Shared/Loading/Loading";
 import { Rating } from "@mui/material";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../../variants";
 
 const Testimonial = () => {
   const { isLoading, data: reviews } = useQuery("reviews", () =>
@@ -36,7 +38,13 @@ const Testimonial = () => {
 
   return (
     <div>
-      <div className="lg:flex md:flex mb-10 bg-white rounded-md mt-20 shadow-xl">
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="lg:flex md:flex mb-10 bg-white rounded-md mt-20 shadow-xl"
+      >
         <div className="lg:w-1/3 md:w-1/3 flex-none">
           <img
             className="lg:rounded-l-md shadow-xl md:rounded-l-md rounded-t-md lg:rounded-tr-none md:rounded-tr-none"
@@ -86,14 +94,20 @@ const Testimonial = () => {
             </div>
           )}
         </div>
-      </div>
-      <div className="text-center my-10">
+      </motion.div>
+      <motion.div
+        variants={fadeIn("right", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="text-center my-10"
+      >
         <Link to="/review">
           <button className="text-2xl text-[#454242] hover:text-white rounded-sm py-3 px-7 border border-[#454242] hover:bg-[#454242] hover:border-none font-medium">
             Add a Review
           </button>
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 };

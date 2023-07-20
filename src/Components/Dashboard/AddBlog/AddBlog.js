@@ -3,8 +3,11 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useTitle from "../../../Shared/TitleChange/TitleChange";
 
 const AddBlog = () => {
+  useTitle("AddBlog");
+
   const { user } = useContext(AuthContext);
 
   const {

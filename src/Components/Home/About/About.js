@@ -1,9 +1,17 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../../variants";
 
 const About = () => {
   return (
     <div className="grid my-10 lg:grid-cols-2">
-      <div className="pb-5 lg:p-10 md:p-8">
+      <motion.div
+        variants={fadeIn("right", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="pb-5 lg:p-10 md:p-8"
+      >
         <p className="text-2xl text-[#636a76] font-serif">ABOUT US</p>
         <h1 className="font-serif text-[40px] text-black">
           Welcome to Hotel Booking
@@ -17,8 +25,14 @@ const About = () => {
           <span className="text-black">Manager:</span>{" "}
           <span className="text-[#454242]">Rehad Hasan</span>
         </p>
-      </div>
-      <div className="grid gap-2 grid-cols-2">
+      </motion.div>
+      <motion.div
+        variants={fadeIn("left", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewPort={{ once: false, amount: 0.3 }}
+        className="grid gap-2 grid-cols-2"
+      >
         <div className="grid grid-rows-2 gap-2">
           <div className="overflow-hidden rounded-lg">
             <img
@@ -45,7 +59,7 @@ const About = () => {
             srcSet=""
           />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
