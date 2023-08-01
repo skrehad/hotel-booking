@@ -42,7 +42,7 @@
 
 **Hotels Page 👇** <br />
 
-![](https://i.ibb.co/8xV6dcf/Hotels-Hotel-Booking.png)
+![](https://imgtr.ee/images/2023/08/01/cc0e9cb26599b9923da3b0dde4be8d5e.png)
 
 **About Page 👇** <br />
 
@@ -50,22 +50,22 @@
 
 **Blog Page 👇** <br />
 
-![](https://i.ibb.co/vHZfZDH/Blog-Hotel-Booking.png)
+![](https://imgtr.ee/images/2023/08/01/95302703558c11ca9aa304557dbc3f2a.png)
 
 **Contact Page 👇** <br />
 
-![](https://i.ibb.co/bLzg27x/Contact-Hotel-Booking.png)
+![](https://imgtr.ee/images/2023/08/01/44c63873e1cdc0d54694234f18f8a452.png)
 
 **Admin Dashboard Page 👇** <br />
 
-![](https://i.ibb.co/m8kGLH0/Admin-Dashboard.png)
+![](https://imgtr.ee/images/2023/08/01/15243dc9d411ac0561045a585b7e4f11.png)
 
 **User Dashboard Page 👇** <br />
 
-![](https://i.ibb.co/17ry3jK/Nomal-User-Dashboard.png)
+![](https://imgtr.ee/images/2023/08/01/fee96dde409670b28375016ab3ba0252.png)
 
 **Register && Login Page 👇** <br />
 
-![](https://i.ibb.co/dKpfK2Z/Sign-Up-Hotel-Booking.png)
+![](https://imgtr.ee/images/2023/08/01/5991cd42dba56b1be80cd00cdc705052.png)
 
-![](https://i.ibb.co/d6ytshX/Login-Hotel-Booking.png)
+![](https://imgtr.ee/images/2023/08/01/7188ce2ce482757514e5f3b4c8b15c16.png)
