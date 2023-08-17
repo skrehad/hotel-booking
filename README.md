@@ -33,3 +33,42 @@
 
 **Admin Email: test@gmail.com** <br />
 **Admin Password: 12345678** <br />
+<<<<<<< HEAD
+=======
+
+**_Screenshots of the Project 📸_**
+
+**Home Page 🏡** <br />
+
+![](https://i.ibb.co/6r2qbMS/Home-Hotel-Booking.png)
+
+**Hotels Page 👇** <br />
+
+![](https://imgtr.ee/images/2023/08/01/cc0e9cb26599b9923da3b0dde4be8d5e.png)
+
+**About Page 👇** <br />
+
+![](https://i.ibb.co/7JzLR2y/About-Hotel-Booking.png)
+
+**Blog Page 👇** <br />
+
+![](https://imgtr.ee/images/2023/08/01/95302703558c11ca9aa304557dbc3f2a.png)
+
+**Contact Page 👇** <br />
+
+![](https://imgtr.ee/images/2023/08/01/44c63873e1cdc0d54694234f18f8a452.png)
+
+**Admin Dashboard Page 👇** <br />
+
+![](https://imgtr.ee/images/2023/08/01/15243dc9d411ac0561045a585b7e4f11.png)
+
+**User Dashboard Page 👇** <br />
+
+![](https://imgtr.ee/images/2023/08/01/fee96dde409670b28375016ab3ba0252.png)
+
+**Register && Login Page 👇** <br />
+
+![](https://imgtr.ee/images/2023/08/01/5991cd42dba56b1be80cd00cdc705052.png)
+
+![](https://imgtr.ee/images/2023/08/01/7188ce2ce482757514e5f3b4c8b15c16.png)
+>>>>>>> db657848642d25f2457903903e9b3ff8a6deee41
