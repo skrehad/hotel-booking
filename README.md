@@ -1,5 +1,7 @@
 **Website Name: Hotel-Booking** <br />
 
+👉 Live Demo: https://hotel-booking-6fdb2.web.app/
+
 **About the project 👇** <br />
 
 » This is a Hotel Booking Website, Where user can Login (Google && FaceBook) and Register.<br />
@@ -14,8 +16,6 @@
 » The website compares prices from hotels and booking platforms, helping users find the best deals and discounts.<br />
 » That hole process connects to the backend.<br />
 **Admin panel: An Admin can control users,add a hotel,manage hotels,edit hotels,add a blog,add a gallery picture,control everything in this website**
-
-👉 Live Demo: https://hotel-booking-6fdb2.web.app/
 
 **Build with:** <br />
 » CSS <br />
