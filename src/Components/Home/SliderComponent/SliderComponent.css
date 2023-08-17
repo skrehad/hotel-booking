@@ -18,7 +18,6 @@
   .carousel-item.active {
     display: block;
   }
-  
   .carousel-text {
     position: absolute;
     top: 50%;
