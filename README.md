@@ -33,39 +33,3 @@
 
 **Admin Email: test@gmail.com** <br />
 **Admin Password: 12345678** <br />
-
-**_Screenshots of the Project 📸_**
-
-**Home Page 🏡** <br />
-
-![](https://i.ibb.co/6r2qbMS/Home-Hotel-Booking.png)
-
-**Hotels Page 👇** <br />
-
-![](https://i.ibb.co/8xV6dcf/Hotels-Hotel-Booking.png)
-
-**About Page 👇** <br />
-
-![](https://i.ibb.co/7JzLR2y/About-Hotel-Booking.png)
-
-**Blog Page 👇** <br />
-
-![](https://i.ibb.co/vHZfZDH/Blog-Hotel-Booking.png)
-
-**Contact Page 👇** <br />
-
-![](https://i.ibb.co/bLzg27x/Contact-Hotel-Booking.png)
-
-**Admin Dashboard Page 👇** <br />
-
-![](https://i.ibb.co/m8kGLH0/Admin-Dashboard.png)
-
-**User Dashboard Page 👇** <br />
-
-![](https://i.ibb.co/17ry3jK/Nomal-User-Dashboard.png)
-
-**Register && Login Page 👇** <br />
-
-![](https://i.ibb.co/dKpfK2Z/Sign-Up-Hotel-Booking.png)
-
-![](https://i.ibb.co/d6ytshX/Login-Hotel-Booking.png)
