@@ -16,7 +16,6 @@ const Contact = () => {
     const email = event.target.email.value;
     const textarea = event.target.textarea.value;
     const result = { name, email, textarea };
-    // console.log(result);
     toast.success(`${result.name} your information submitted successfully`);
     event.target.reset();
   };
