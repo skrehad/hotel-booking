@@ -25,7 +25,7 @@ const Review = () => {
       rating: data.rating,
       description: data.description,
     };
-    console.log(review);
+    // console.log(review);
 
     fetch("https://hotel-booking-backend-server-skrehad.vercel.app/reviews", {
       method: "POST",
