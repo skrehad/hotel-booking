@@ -64,7 +64,6 @@ const HotelDetail = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data);
           if (data.acknowledged) {
             toast.success(`${userName} your booking is successfully`);
             navigate("/dashboard");
