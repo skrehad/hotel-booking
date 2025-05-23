@@ -6,7 +6,6 @@ import { fadeIn } from "../../variants";
 
 const Hotel = ({ hotel }) => {
   const { _id, image, name, rating, price } = hotel;
-  // console.log(hotel);
   return (
     <div>
       <motion.div
