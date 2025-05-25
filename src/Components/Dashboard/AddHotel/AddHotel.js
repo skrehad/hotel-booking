@@ -16,7 +16,6 @@ const AddHotel = () => {
   } = useForm();
   const navigate = useNavigate();
   const imageHostKey = process.env.REACT_APP_imgbb_key;
-  // console.log(imageHostKey);
 
   const handleAddBlog = (data) => {
     const image = data.image[0];
