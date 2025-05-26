@@ -15,7 +15,6 @@ const CheckoutForm = ({ booking }) => {
   const { price, totalDay, email, userName, _id } = booking;
 
   const totalPrice = price * totalDay;
-  // console.log(totalPrice);
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     fetch(
