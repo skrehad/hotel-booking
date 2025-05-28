@@ -34,7 +34,7 @@ const CheckoutForm = ({ booking }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log("click the button");
+
     if (!stripe || !elements) {
       return;
     }
