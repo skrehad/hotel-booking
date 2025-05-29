@@ -15,7 +15,6 @@ const SignUp = () => {
   const location = useLocation();
   const [createdUserEmail, setCreatedUserEmail] = useState("");
   const [token] = useToken(createdUserEmail);
-  // console.log(createdUserEmail);
 
   const from = location.state?.from?.pathname || "/";
 
