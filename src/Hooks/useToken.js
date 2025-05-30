@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
 const useToken = (email) => {
-  // console.log("useToken", email);
   const [token, setToken] = useState("");
   useEffect(() => {
     if (email) {
@@ -11,8 +10,6 @@ const useToken = (email) => {
       )
         .then((res) => res.json())
         .then((data) => {
-          // console.log("useToken", data);
-
           if (data.accessToken) {
             localStorage.setItem("accessToken", data.accessToken);
             setToken(data.accessToken);
