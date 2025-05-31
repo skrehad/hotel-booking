@@ -41,7 +41,7 @@ const HotelDetail = () => {
 
   const handleBooking = () => {
     if (!startDate || !endDate) {
-      toast.error("please select start and end date for booking a hotel");
+      toast.error("Please Select start and end date for booking a hotel");
     } else {
       const booking = {
         userName,
