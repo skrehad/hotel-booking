@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsGoogle, BsFacebook } from "react-icons/bs";
@@ -34,7 +35,6 @@ const Login = () => {
     setLoading(true);
     signInEmail(data.email, data.password)
       .then((result) => {
-        // eslint-disable-next-line no-unused-vars
         const user = result.user;
         setLoginUserEmail(data.email);
       })
