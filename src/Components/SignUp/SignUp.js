@@ -120,14 +120,14 @@ const SignUp = () => {
 
   return (
     <div>
-      <div className="card rounded-none bg-[url('https://i.ibb.co/bgtHgPz/setai-kh-penthouseb-pool-1566480093.jpg')] bg-no-repeat  shadow-2xl">
+      <div className="card rounded-none bg-[url('https://i.ibb.co/bgtHgPz/setai-kh-penthouseb-pool-1566480093.jpg')]  shadow-2xl">
         <div className="flex mx-auto mt-14 mb-8">
           <img
             className="w-[50px] rounded-lg h-[50px]"
             src="https://i.ibb.co/NNT3GBS/favicon.jpg"
             alt=""
           />
-          <div className=" ml-2 uppercase text-white italic font-bold mt-3">
+          <div className=" ml-2 uppercase text-black italic font-bold mt-3">
             Hotel Booking.com
           </div>
         </div>

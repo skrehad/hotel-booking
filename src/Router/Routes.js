@@ -21,6 +21,7 @@ import AdminRoute from "./AdminRoute";
 import AddGalleryPicture from "../Components/Dashboard/AddGalleryPicture/AddGalleryPicture";
 import Review from "../Components/Review/Review";
 import Payments from "../Components/Dashboard/Payments/Payments";
+import Dashboard from "../Components/Dashboard/Dashboard/Dashboard";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -34,19 +35,11 @@ const Routes = () => {
         },
         {
           path: "/about",
-          element: (
-            <PrivateRouter>
-              <About></About>
-            </PrivateRouter>
-          ),
+          element: <About></About>,
         },
         {
           path: "/hotels",
-          element: (
-            <PrivateRouter>
-              <Hotels></Hotels>
-            </PrivateRouter>
-          ),
+          element: <Hotels></Hotels>,
         },
         {
           path: "/hotels/:id",
@@ -55,11 +48,7 @@ const Routes = () => {
               `https://hotel-booking-backend-server-skrehad.vercel.app/hotels/${params.id}`
             );
           },
-          element: (
-            <PrivateRouter>
-              <HotelDetail></HotelDetail>
-            </PrivateRouter>
-          ),
+          element: <HotelDetail></HotelDetail>,
         },
         {
           path: "/review",
@@ -98,6 +87,10 @@ const Routes = () => {
       children: [
         {
           path: "/dashboard",
+          element: <Dashboard></Dashboard>,
+        },
+        {
+          path: "/dashboard/myBooking",
           element: <MyBooking></MyBooking>,
         },
         {
